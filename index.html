@@ -375,80 +375,80 @@
         <div class="absolute top-[30vh] right-1/4 w-[400px] h-[400px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none"></div>
     </div>
 
-    <!-- Cabeçalho Limpo (Normal / Não-Fixado) -->
-    <header class="relative z-50 animate-fade-in border-b border-white/10 bg-[#020d14]/40 backdrop-blur-xl">
-        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex items-center justify-between">
-            <a class="flex items-center gap-3" href="#">
-                <img src="assets/logo_wme_workshop.webp" alt="WME - Workshop da Marca Esportiva" class="h-10 sm:h-12 w-auto object-contain drop-shadow-md"/>
-            </a>
-
-            <!-- Data e Tipo de Evento no Topo -->
-            <div class="hidden md:flex items-center gap-3 text-xs font-semibold text-slate-300">
-                <span>📅 29 e 30 de Agosto</span>
-                <span class="text-slate-600">|</span>
-                <span class="text-sky-400">⚡ 100% Online e Ao Vivo</span>
-            </div>
-            
-            <div class="flex items-center gap-3">
-                <a href="#comprar" class="inline-flex items-center justify-center rounded-xl bg-green-600 hover:bg-green-500 text-white font-black px-5 py-2.5 text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_15px_rgba(34,197,94,0.4)] transition-all btn-shimmer">
-                    🚀 GARANTIR VAGA
-                </a>
-            </div>
-        </nav>
-    </header>
-
     <main class="relative z-10">
         
         <!-- SEÇÃO 1: HERO (Alinhamento Limpo & Perfeito dos Textos) -->
-        <section id="hero-section" class="w-full relative min-h-screen flex items-center bg-transparent overflow-hidden py-10 lg:py-16">
+        <section id="hero-section" class="w-full relative min-h-screen flex flex-col justify-center pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 bg-transparent overflow-hidden">
             
             <!-- Gradiente Iluminado no Lado Esquerdo (+25% de Claridade) -->
             <div class="absolute inset-y-0 left-0 w-full lg:w-[55%] bg-gradient-to-r from-[#020d14]/75 via-[#020d14]/45 to-transparent z-0 pointer-events-none"></div>
 
-            <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+            <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left space-y-7 sm:space-y-8 lg:space-y-9 my-auto">
                 
-                <!-- Sobrancelha Discreta (Efeito Vidro Fosco) -->
+                <!-- 0. Logo Oficial do Workshop da Marca Esportiva -->
+                <div class="animate-fade-in mb-4 sm:mb-5 lg:mb-6">
+                    <a href="#">
+                        <img src="assets/logo_wme_workshop.webp" alt="WME - Workshop da Marca Esportiva" class="h-12 sm:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_4px_20px_rgba(56,189,248,0.25)]"/>
+                    </a>
+                </div>
+
+                <!-- 1. Sobrancelha em Pílula (Badge Estilo Apple com Alto Contraste) -->
                 <div class="animate-fade-in">
-                    <span class="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/30 bg-sky-500/10 backdrop-blur px-3.5 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.1)]">
-                        🚀 Exclusivo: Método Prático de 2 Dias
+                    <span class="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-950/80 backdrop-blur-md px-4 py-2 text-xs font-bold uppercase tracking-widest text-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+                        <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        29 E 30 DE AGOSTO | AO VIVO
                     </span>
                 </div>
 
-                <!-- Headline Editorial Impactante (Alinhada à Esquerda no Desktop) -->
-                <div class="animate-fade-in max-w-xl lg:max-w-2xl" style="animation-delay: 0.1s;">
-                    <h1 class="text-3xl sm:text-4xl md:text-[2.25rem] lg:text-[2.6rem] xl:text-[2.85rem] font-extrabold tracking-tight leading-normal text-white" style="line-height: 1.2;">
-                        Como Montar em 2 Dias uma Marca Esportiva Sem Erros de Produção, Sem Prejuízos <span class="text-sky-400">e que Vende no Brasil Todo.</span>
+                <!-- 2. Headline Principal Impactante + Subheadline com Contraste Suave -->
+                <div class="animate-fade-in max-w-xl lg:max-w-3xl" style="animation-delay: 0.1s;">
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] sm:leading-[1.15]" style="font-family: Inter, ui-sans-serif, system-ui, sans-serif;">
+                        Crie uma marca esportiva que produz sem erros e que vende em todo o Brasil, <span class="text-sky-400 font-black drop-shadow-[0_0_20px_rgba(56,189,248,0.3)]">em apenas 2 dias.</span>
                     </h1>
-                    <p class="mt-3 text-xs sm:text-sm md:text-base text-slate-100 leading-snug font-semibold tracking-wide">
+                    <p class="mt-5 sm:mt-6 lg:mt-7 text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed font-medium tracking-wide max-w-xl lg:max-w-2xl">
                         Garanta sua vaga no Workshop e aprenda o passo a passo para criar sua linha de uniformes de alta performance, eliminar o desperdício na fábrica e lotar sua agenda de vendas.
                     </p>
                 </div>
 
-                <!-- CTA Inicial (Sem preço, Alinhado à Esquerda) -->
-                <div class="w-full max-w-md animate-fade-in flex flex-col items-center lg:items-start" style="animation-delay: 0.2s;">
-                    <a href="#comprar" class="inline-flex items-center justify-center rounded-2xl bg-green-600 hover:bg-green-500 text-white font-black px-8 py-4 text-sm sm:text-base uppercase tracking-wider shadow-[0_4px_25px_rgba(34,197,94,0.4)] hover:shadow-[0_4px_30px_rgba(34,197,94,0.6)] transition-all duration-300 btn-shimmer w-full sm:w-auto text-center" style="border-radius: 16px;">
-                        🚀 QUERO MONTAR MINHA MARCA ESPORTIVA SEM ERROS
-                    </a>
-                    
-                    <!-- Barra de Carregamento de Escassez -->
-                    <div class="mt-5 w-full max-w-xs sm:max-w-sm">
-                        <div class="flex justify-between items-center text-[10px] sm:text-xs text-slate-300 font-extrabold mb-2 uppercase tracking-wider whitespace-nowrap gap-2">
-                            <span class="flex items-center gap-1"><span class="animate-pulse text-red-500">🔥</span> Lote 1 quase esgotado</span>
-                            <span class="text-sky-300 font-black bg-sky-500/10 px-2.5 py-0.5 rounded-md border border-sky-500/30">87% Vendidos</span>
-                        </div>
-                        <div class="w-full bg-slate-950 rounded-full h-4 sm:h-5 border-2 border-sky-500/40 overflow-hidden p-1 shadow-inner shadow-black">
-                            <div class="bg-gradient-to-r from-sky-600 via-sky-400 to-cyan-400 h-full rounded-full animate-pulse shadow-[0_0_12px_rgba(56,189,248,0.6)]" style="width: 87%;"></div>
-                        </div>
+                <!-- 3. Sub-diferenciais em Pílulas com Contraste (Sem Poluição Visual) -->
+                <div class="animate-fade-in flex flex-wrap items-center justify-center lg:justify-start gap-3.5 sm:gap-4 text-xs sm:text-sm font-semibold" style="animation-delay: 0.15s;">
+                    <span class="inline-flex items-center gap-2 rounded-xl bg-slate-900/80 border border-sky-500/20 px-3.5 py-2 text-slate-200 shadow-md">
+                        <span class="text-sky-400 text-sm">🤖</span> IA para Layouts Esportivos 3D
+                    </span>
+                    <span class="text-white/20 font-light hidden sm:inline">|</span>
+                    <span class="inline-flex items-center gap-2 rounded-xl bg-slate-900/80 border border-sky-500/20 px-3.5 py-2 text-slate-200 shadow-md">
+                        <span class="text-sky-400 text-sm">🛡️</span> Produção Blindada Sem Erros
+                    </span>
+                    <span class="text-white/20 font-light hidden sm:inline">|</span>
+                    <span class="inline-flex items-center gap-2 rounded-xl bg-slate-900/80 border border-sky-500/20 px-3.5 py-2 text-slate-200 shadow-md">
+                        <span class="text-sky-400 text-sm">🚀</span> Vendas no Brasil Todo com Meta Ads
+                    </span>
+                </div>
+
+                <!-- 4. Bloco CTA + Barra de Progresso Lado a Lado (Ancoragem R$ 197 por R$ 19) -->
+                <div class="w-full max-w-2xl animate-fade-in pt-4 sm:pt-5 lg:pt-6" style="animation-delay: 0.2s;">
+                    <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 w-full">
                         
-                        <!-- Informações de Data e Transmissão -->
-                        <div class="mt-4 flex flex-col gap-2 items-center lg:items-start text-center lg:text-left">
-                            <span class="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/30 bg-sky-500/10 backdrop-blur px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.1)]">
-                                📅 29 e 30 de Agosto
+                        <!-- Botão Pílula Luminoso com Ancoragem de R$ 197 por R$ 19 -->
+                        <a href="#comprar" class="group relative inline-flex items-center justify-between gap-4 rounded-full bg-gradient-to-r from-blue-600/90 via-sky-500/90 to-blue-700/90 border border-sky-400/50 hover:border-white p-1.5 pl-6 shadow-[0_0_30px_rgba(56,189,248,0.4)] hover:shadow-[0_0_40px_rgba(56,189,248,0.7)] transition-all duration-300 w-full sm:w-auto min-w-[280px]">
+                            <span class="text-sm sm:text-base font-extrabold text-white tracking-wide">
+                                de <span class="line-through opacity-70 text-slate-200">R$ 197</span> por <span class="text-yellow-300 font-black text-lg sm:text-xl">R$ 19</span>
                             </span>
-                            <p class="text-[11px] sm:text-xs text-slate-300 font-medium tracking-wide mt-1">
-                                ⚡ Evento <span class="text-sky-300 font-bold">100% Online e Ao Vivo pelo Google Meet</span> (Sem replay).
+                            <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sky-400 text-slate-950 flex items-center justify-center font-black group-hover:translate-x-1 transition-transform shadow-md">
+                                ➔
+                            </span>
+                        </a>
+
+                        <!-- Barra de Progresso + Escassez -->
+                        <div class="flex-1 w-full space-y-2">
+                            <div class="w-full bg-slate-800/80 rounded-full h-2.5 overflow-hidden border border-white/10 p-0.5">
+                                <div class="bg-gradient-to-r from-blue-500 via-sky-400 to-cyan-300 h-full rounded-full transition-all duration-500" style="width: 87%;"></div>
+                            </div>
+                            <p class="text-[11px] sm:text-xs text-slate-300 font-medium tracking-wide text-center sm:text-left">
+                                <span class="font-bold text-white">87%</span> dos ingressos vendidos de <span class="line-through text-slate-400">R$ 197,00</span> por <span class="text-sky-300 font-bold">R$ 19,00</span>
                             </p>
                         </div>
+
                     </div>
                 </div>
 
@@ -518,7 +518,7 @@
                             <span class="text-xs font-black text-red-400 uppercase tracking-wider bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 w-max">02. TETO REGIONAL</span>
                             <h3 class="text-lg sm:text-xl font-extrabold text-white mt-3 leading-snug">Ficar refém do boca a boca da cidade e ver a produção estagnada</h3>
                             <p class="text-base sm:text-lg text-slate-100 mt-3 leading-relaxed font-semibold tracking-wide drop-shadow-sm">
-                                Vender apenas para os times locais limita o seu faturamento. Enquanto você disputa o cliente da sua região centavo a centavo, a internet permite vender mantos para o Brasil inteiro.
+                                Vender apenas para os times locais limita o seu faturamento. Enquanto você disputa o cliente da sua região centavo a centavo, a internet permite vender uniformes esportivos para o Brasil inteiro.
                             </p>
                         </div>
                     </div>
@@ -845,7 +845,7 @@
                 </div>
 
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
-                    A Matemática do Lucro: Como Ter um Negócio de Mantos que Fatura de R$ 3.000 a R$ 15.000 por Pedido
+                    A Matemática do Lucro: Como Ter um Negócio de Uniformes Esportivos que Fatura de R$ 3.000 a R$ 15.000 por Pedido
                 </h2>
                 <p class="text-base sm:text-lg text-slate-200 mt-4 leading-relaxed max-w-2xl mx-auto font-medium">
                     Seja terceirizando a produção sem comprar máquinas ou escalando sua própria confecção, veja como a matemática da marca esportiva gera margens limpas e vendas previsíveis:
@@ -1936,7 +1936,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Imagem do Especialista / Manto no Ticket -->
+                                <!-- Imagem do Especialista / Uniforme Esportivo no Ticket -->
                                 <div class="relative my-4 rounded-2xl overflow-hidden bg-slate-950 border border-sky-500/20 shadow-inner">
                                     <img src="assets/especialista_hero.webp" alt="Ingresso Flávio Bfnine" class="w-full h-72 sm:h-80 md:h-[340px] object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
                                     
@@ -2323,10 +2323,10 @@
                 <!-- Lista de Cards Empilháveis no Scroll (Sticky Stack Cards Animation) -->
                 <div class="space-y-12 sm:space-y-16 relative">
                     
-                    <!-- Card 1 (Destaque Manto Bfnine Celeste Enviado pelo Usuário) -->
+                    <!-- Card 1 (Destaque Uniforme Esportivo Bfnine Celeste Enviado pelo Usuário) -->
                     <div class="sticky top-[150px] z-[10] w-full max-w-[850px] mx-auto rounded-[28px] sm:rounded-[36px] border-2 border-sky-400/50 bg-[#052637] p-3 sm:p-5 shadow-2xl overflow-hidden transition-all duration-300">
                         <div class="w-full h-[320px] sm:h-[450px] rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 relative flex items-center justify-center p-4">
-                            <img src="assets/manto_celeste_bfnine.webp" alt="Manto Celeste Bfnine Polo 3D Oficial" class="w-full h-full object-contain drop-shadow-[0_10px_25px_rgba(56,189,248,0.3)]"/>
+                            <img src="assets/manto_celeste_bfnine.webp" alt="Uniforme Esportivo Celeste Bfnine Polo 3D Oficial" class="w-full h-full object-contain drop-shadow-[0_10px_25px_rgba(56,189,248,0.3)]"/>
                         </div>
                     </div>
 
@@ -3018,7 +3018,7 @@
                 function loop() {
                     const diff = targetFrameIndex - currentFrameIndex;
                     const isMobile = window.innerWidth < 1024;
-                    const lerpFactor = isMobile ? 0.03 : 0.05; // Cadência estendida e aveludada (+5s de exibição)
+                    const lerpFactor = isMobile ? 0.08 : 0.12; // Resposta ultrarrápida e ágil ao scroll
                     if (Math.abs(diff) > 0.01) {
                         currentFrameIndex += diff * lerpFactor;
                         renderCanvasFrame(currentFrameIndex);
@@ -3038,7 +3038,7 @@
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
 
-            // 3. GSAP ScrollTrigger (Sincronização Direta & Responsiva no Mobile e Desktop)
+            // 3. GSAP ScrollTrigger (Sincronização Rápida, Fluida & Responsiva)
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             function syncCanvasOnMobileScroll() {
@@ -3065,7 +3065,7 @@
                     gsap.registerPlugin(ScrollTrigger);
 
                     const isMobileLayout = window.innerWidth < 1024;
-                    const scrollDistance = isMobileLayout ? "+=2000" : "+=4200";
+                    const scrollDistance = isMobileLayout ? "+=880" : "+=1750";
 
                     gsap.to(sequence, {
                         frame: totalWebpFrames - 1,
@@ -3075,7 +3075,7 @@
                             start: "top top",
                             end: scrollDistance,
                             pin: true,
-                            scrub: 1.5,
+                            scrub: 0.6,
                             onUpdate: (self) => {
                                 targetFrameIndex = self.progress * (totalWebpFrames - 1);
                                 startFrameInterpolationLoop();
