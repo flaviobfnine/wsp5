@@ -2900,54 +2900,10 @@
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
 
-            // 3. GSAP ScrollTrigger (Sincronização Rápida, Fluida & Responsiva)
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            function syncCanvasOnMobileScroll() {
-                const heroSection = document.getElementById('hero-section');
-                if (!heroSection) return;
-                
-                const parent = heroSection.parentElement;
-                const isPinSpacer = parent && parent.classList.contains('pin-spacer');
-                const container = isPinSpacer ? parent : heroSection;
-                
-                const containerRect = container.getBoundingClientRect();
-                const totalHeight = container.offsetHeight - window.innerHeight;
-                
-                if (totalHeight > 0) {
-                    const scrolled = -containerRect.top;
-                    const progress = Math.min(Math.max(scrolled / totalHeight, 0), 1);
-                    targetFrameIndex = progress * (totalWebpFrames - 1);
-                    startFrameInterpolationLoop();
-                }
-            }
-
+            // 3. GSAP ScrollTrigger (Trava de Scroll no Hero desativada - Rolagem 100% direta e natural)
             function initGSAP() {
-                if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                    gsap.registerPlugin(ScrollTrigger);
-
-                    const isMobileLayout = window.innerWidth < 1024;
-                    const scrollDistance = isMobileLayout ? "+=880" : "+=1750";
-
-                    gsap.to(sequence, {
-                        frame: totalWebpFrames - 1,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: "#hero-section",
-                            start: "top top",
-                            end: scrollDistance,
-                            pin: true,
-                            scrub: 0.6,
-                            onUpdate: (self) => {
-                                targetFrameIndex = self.progress * (totalWebpFrames - 1);
-                                startFrameInterpolationLoop();
-                            }
-                        }
-                    });
-
+                if (typeof ScrollTrigger !== 'undefined') {
                     setTimeout(() => ScrollTrigger.refresh(), 300);
-                } else {
-                    renderCanvasFrame(0);
                 }
             }
 
@@ -2956,9 +2912,6 @@
             } else {
                 initGSAP();
             }
-
-            window.addEventListener('scroll', syncCanvasOnMobileScroll, { passive: true });
-            window.addEventListener('touchmove', syncCanvasOnMobileScroll, { passive: true });
 
             // 4. Manter o controle visual das seções existentes (Dores, Processo, Cronograma, Depoimentos)
             const doresSection = document.getElementById('dores-section');
