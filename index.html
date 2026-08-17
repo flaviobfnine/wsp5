@@ -354,12 +354,6 @@
     <!-- Pixel X App - END -->
 </head>
 <body class="min-h-screen bg-slate-950 text-white antialiased" style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
-    
-    <div id="canvas-bg-container" class="fixed inset-0 w-full h-full z-0 pointer-events-none overflow-hidden bg-[#020d14]">
-        <canvas id="hero-scroll-canvas" class="w-full h-full object-cover filter brightness-100 contrast-110"></canvas>
-        <div class="absolute inset-0 bg-gradient-to-b from-[#020d14]/45 via-[#020d14]/25 to-[#020d14]/55 pointer-events-none"></div>
-    </div>
-
     <div class="fixed inset-0 -z-10 bg-gradient-to-b from-[#010c14] via-[#031520] to-[#01070d]">
         <div class="absolute inset-0 opacity-[0.025]">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -378,10 +372,26 @@
     <main class="relative z-10">
         
         <!-- SEÇÃO 1: HERO (Alinhamento Limpo & Perfeito dos Textos) -->
-        <section id="hero-section" class="w-full relative min-h-screen flex flex-col justify-center pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 bg-transparent overflow-hidden">
+        <section id="hero-section" class="w-full relative min-h-screen flex flex-col justify-center pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 bg-[#020d14] overflow-hidden">
             
-            <!-- Gradiente Iluminado no Lado Esquerdo (+25% de Claridade) -->
-            <div class="absolute inset-y-0 left-0 w-full lg:w-[55%] bg-gradient-to-r from-[#020d14]/75 via-[#020d14]/45 to-transparent z-0 pointer-events-none"></div>
+            <!-- Fundo Estático Ultra-Leve (SOMENTE NO MOBILE - Carregamento Instantâneo < 1s) -->
+            <div class="block lg:hidden absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#020d14]">
+                <picture class="w-full h-full block">
+                    <source srcset="assets/hero_mobile.webp" type="image/webp"/>
+                    <img src="assets/hero_mobile.jpg" alt="Elenco Uniformes Esportivos Bfnine" class="w-full h-full object-cover object-center" loading="eager" decoding="async" fetchpriority="high"/>
+                </picture>
+                <!-- Gradiente para legibilidade perfeita da copy do Hero sobre a imagem original -->
+                <div class="absolute inset-0 bg-gradient-to-b from-[#020d14]/65 via-[#020d14]/35 to-[#020d14]/75 pointer-events-none"></div>
+            </div>
+
+            <!-- Canvas de Fundo do Hero (EXCLUSIVO NO DESKTOP) -->
+            <div id="canvas-bg-container" class="hidden lg:block absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden bg-[#020d14]">
+                <canvas id="hero-scroll-canvas" class="w-full h-full object-cover filter brightness-100 contrast-110"></canvas>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#020d14]/45 via-[#020d14]/25 to-[#020d14]/55 pointer-events-none"></div>
+            </div>
+
+            <!-- Gradiente Iluminado no Lado Esquerdo (EXCLUSIVO NO DESKTOP) -->
+            <div class="hidden lg:block absolute inset-y-0 left-0 w-full lg:w-[55%] bg-gradient-to-r from-[#020d14]/75 via-[#020d14]/45 to-transparent z-0 pointer-events-none"></div>
 
             <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left space-y-7 sm:space-y-8 lg:space-y-9 my-auto">
                 
@@ -573,8 +583,8 @@
         </section>
 
         <!-- SEÇÃO 3: PROCESSO COMPLETO (Visualizador Interativo de 7 Passos com Trava na Subheadline) -->
-        <section id="processo-section" class="w-full relative z-10 border-t border-white/5 bg-[#020d14]" style="height: 240vh;">
-            <div id="sticky-process-wrapper" class="sticky top-0 flex flex-col justify-center" style="height: 100vh;">
+        <section id="processo-section" class="w-full relative z-10 border-t border-white/5 bg-[#020d14] max-lg:h-auto lg:h-[240vh] py-12 lg:py-0">
+            <div id="sticky-process-wrapper" class="max-lg:relative max-lg:h-auto lg:sticky lg:top-0 flex flex-col justify-center lg:h-screen">
                 <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 py-2 relative flex flex-col justify-center h-full">
                     
                     <!-- Headline Principal (Rola normalmente para cima) -->
@@ -593,73 +603,73 @@
                             No Workshop da Marca Esportiva, você vai aprender o método prático em 7 pilares para sair do zero (ou da estagnação) e construir um negócio lucrativo com vendas diárias:
                         </p>
 
-                        <!-- Layout Responsivo do Processo em 7 Passos -->
+                        <!-- Layout Responsivo do Processo em 7 Passos (Sticky Stack Cards EXCLUSIVO no Mobile) -->
                         <div class="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-10 items-center w-full relative z-20">
                             
-                            <!-- 1. Trilho de Cards Deslizantes (Visível no Mobile / Botões Interativos) -->
-                            <div id="process-track-container" class="lg:hidden w-full overflow-x-auto relative scrollbar-none px-2 snap-x snap-mandatory py-2">
-                                <div id="process-track" class="flex gap-3 transition-transform duration-150 ease-out w-max">
+                            <!-- 1. Trilho de Cards (Sticky Stack no Mobile / Grid no Desktop) -->
+                            <div id="process-track-container" class="lg:hidden w-full relative py-2 space-y-6">
+                                <div id="process-track" class="flex flex-col gap-6 w-full relative">
                                     
                                     <!-- Card 1 -->
-                                    <button onclick="activateStep(1)" id="process-card-1" class="snap-center text-left w-[76vw] max-w-[310px] bg-[#052637]/90 border-2 border-yellow-500 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 shadow-lg shadow-yellow-500/10" style="border-radius: 20px;">
+                                    <button onclick="activateStep(1)" id="process-card-1" class="sticky top-[100px] z-[10] text-left w-full bg-[#051f2d] border-2 border-yellow-500 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.9)]" style="border-radius: 20px;">
                                         <div>
-                                            <div class="w-7 h-7 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-1.5">01</div>
-                                            <h3 class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider">Marca Esportiva de Elite</h3>
-                                            <p class="text-[11px] sm:text-xs text-slate-200 mt-1.5 leading-relaxed">Construir uma marca forte e valorizada, saindo do estigma de oficina local ou brindes baratos.</p>
+                                            <div class="w-8 h-8 rounded-lg bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-3">01</div>
+                                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider">Marca Esportiva de Elite</h3>
+                                            <p class="text-xs text-slate-200 mt-2 leading-relaxed">Construir uma marca forte e valorizada, saindo do estigma de oficina local ou brindes baratos.</p>
                                         </div>
                                     </button>
 
                                     <!-- Card 2 -->
-                                    <button onclick="activateStep(2)" id="process-card-2" class="snap-center text-left w-[76vw] max-w-[310px] bg-[#052637]/50 border-2 border-yellow-500/10 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 opacity-60" style="border-radius: 20px;">
+                                    <button onclick="activateStep(2)" id="process-card-2" class="sticky top-[100px] z-[20] text-left w-full bg-[#051f2d] border-2 border-yellow-500/60 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.9)]" style="border-radius: 20px;">
                                         <div>
-                                            <div class="w-7 h-7 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-1.5">02</div>
-                                            <h3 class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider">Apresentação & Gabaritos 3D</h3>
-                                            <p class="text-[11px] sm:text-xs text-slate-200 mt-1.5 leading-relaxed">Mockups 3D hiper-realistas que encantam diretores de times e justificam vender por ticket alto.</p>
+                                            <div class="w-8 h-8 rounded-lg bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-3">02</div>
+                                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider">Apresentação & Gabaritos 3D</h3>
+                                            <p class="text-xs text-slate-200 mt-2 leading-relaxed">Mockups 3D hiper-realistas que encantam diretores de times e justificam vender por ticket alto.</p>
                                         </div>
                                     </button>
 
                                     <!-- Card 3 -->
-                                    <button onclick="activateStep(3)" id="process-card-3" class="snap-center text-left w-[76vw] max-w-[310px] bg-[#052637]/50 border-2 border-yellow-500/10 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 opacity-60" style="border-radius: 20px;">
+                                    <button onclick="activateStep(3)" id="process-card-3" class="sticky top-[100px] z-[30] text-left w-full bg-[#051f2d] border-2 border-yellow-500/60 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.9)]" style="border-radius: 20px;">
                                         <div>
-                                            <div class="w-7 h-7 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-1.5">03</div>
-                                            <h3 class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider">Produção Sem Erros nem Perdas</h3>
-                                            <p class="text-[11px] sm:text-xs text-slate-200 mt-1.5 leading-relaxed">Gabaritos e processos que eliminam refações de estampa, perda de tecido e prejuízos.</p>
+                                            <div class="w-8 h-8 rounded-lg bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-3">03</div>
+                                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider">Produção Sem Erros nem Perdas</h3>
+                                            <p class="text-xs text-slate-200 mt-2 leading-relaxed">Gabaritos e processos que eliminam refações de estampa, perda de tecido e prejuízos.</p>
                                         </div>
                                     </button>
 
                                     <!-- Card 4 -->
-                                    <button onclick="activateStep(4)" id="process-card-4" class="snap-center text-left w-[76vw] max-w-[310px] bg-[#052637]/50 border-2 border-yellow-500/10 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 opacity-60" style="border-radius: 20px;">
+                                    <button onclick="activateStep(4)" id="process-card-4" class="sticky top-[100px] z-[40] text-left w-full bg-[#051f2d] border-2 border-yellow-500/60 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.9)]" style="border-radius: 20px;">
                                         <div>
-                                            <div class="w-7 h-7 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-1.5">04</div>
-                                            <h3 class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider">Script de Vendas no WhatsApp</h3>
-                                            <p class="text-[11px] sm:text-xs text-slate-200 mt-1.5 leading-relaxed">Estrutura rápida de mensagens e orçamentos para converter contatos da internet na hora.</p>
+                                            <div class="w-8 h-8 rounded-lg bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-3">04</div>
+                                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider">Script de Vendas no WhatsApp</h3>
+                                            <p class="text-xs text-slate-200 mt-2 leading-relaxed">Estrutura rápida de mensagens e orçamentos para converter contatos da internet na hora.</p>
                                         </div>
                                     </button>
 
                                     <!-- Card 5 -->
-                                    <button onclick="activateStep(5)" id="process-card-5" class="snap-center text-left w-[76vw] max-w-[310px] bg-[#052637]/50 border-2 border-yellow-500/10 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 opacity-60" style="border-radius: 20px;">
+                                    <button onclick="activateStep(5)" id="process-card-5" class="sticky top-[100px] z-[50] text-left w-full bg-[#051f2d] border-2 border-yellow-500/60 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.9)]" style="border-radius: 20px;">
                                         <div>
-                                            <div class="w-7 h-7 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-1.5">05</div>
-                                            <h3 class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider">Ticket Multiplicado (Kits)</h3>
-                                            <p class="text-[11px] sm:text-xs text-slate-200 mt-1.5 leading-relaxed">Ofertas combinadas com calção, meião e agasalhos para triplicar o valor de cada pedido.</p>
+                                            <div class="w-8 h-8 rounded-lg bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-3">05</div>
+                                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider">Ticket Multiplicado (Kits)</h3>
+                                            <p class="text-xs text-slate-200 mt-2 leading-relaxed">Ofertas combinadas com calção, meião e agasalhos para triplicar o valor de cada pedido.</p>
                                         </div>
                                     </button>
 
                                     <!-- Card 6 -->
-                                    <button onclick="activateStep(6)" id="process-card-6" class="snap-center text-left w-[76vw] max-w-[310px] bg-[#052637]/50 border-2 border-yellow-500/10 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 opacity-60" style="border-radius: 20px;">
+                                    <button onclick="activateStep(6)" id="process-card-6" class="sticky top-[100px] z-[60] text-left w-full bg-[#051f2d] border-2 border-yellow-500/60 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.9)]" style="border-radius: 20px;">
                                         <div>
-                                            <div class="w-7 h-7 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-1.5">06</div>
-                                            <h3 class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider">Vendas para o Brasil Todo</h3>
-                                            <p class="text-[11px] sm:text-xs text-slate-200 mt-1.5 leading-relaxed">Como atrair diretores e presidentes de clubes amadores de qualquer estado todos os dias.</p>
+                                            <div class="w-8 h-8 rounded-lg bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-3">06</div>
+                                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider">Vendas para o Brasil Todo</h3>
+                                            <p class="text-xs text-slate-200 mt-2 leading-relaxed">Como atrair diretores e presidentes de clubes amadores de qualquer estado todos os dias.</p>
                                         </div>
                                     </button>
 
                                     <!-- Card 7 -->
-                                    <button onclick="activateStep(7)" id="process-card-7" class="snap-center text-left w-[76vw] max-w-[310px] bg-[#052637]/50 border-2 border-yellow-500/10 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 opacity-60" style="border-radius: 20px;">
+                                    <button onclick="activateStep(7)" id="process-card-7" class="sticky top-[100px] z-[70] text-left w-full bg-[#051f2d] border-2 border-yellow-500/60 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.9)]" style="border-radius: 20px;">
                                         <div>
-                                            <div class="w-7 h-7 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-1.5">07</div>
-                                            <h3 class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider">Escala, Lucro & Previsibilidade</h3>
-                                            <p class="text-[11px] sm:text-xs text-slate-200 mt-1.5 leading-relaxed">Fluxo contínuo de caixa, pedidos recorrentes todo mês e produção rodando com alta margem.</p>
+                                            <div class="w-8 h-8 rounded-lg bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-extrabold text-xs mb-3">07</div>
+                                            <h3 class="text-base font-extrabold text-white uppercase tracking-wider">Escala, Lucro & Previsibilidade</h3>
+                                            <p class="text-xs text-slate-200 mt-2 leading-relaxed">Fluxo contínuo de caixa, pedidos recorrentes todo mês e produção rodando com alta margem.</p>
                                         </div>
                                     </button>
 
@@ -851,11 +861,11 @@
                     Seja terceirizando a produção sem comprar máquinas ou escalando sua própria confecção, veja como a matemática da marca esportiva gera margens limpas e vendas previsíveis:
                 </p>
 
-                <!-- Grid dos 4 Cards Visuais Realistas -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mt-8">
+                <!-- Grid dos 4 Cards Visuais (Sticky Stack Cards EXCLUSIVO no Mobile / Grid no Desktop) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mt-8 relative">
                     
                     <!-- Card 1: Atração Diária de Times -->
-                    <div class="bg-[#020d14]/95 border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[10] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
                         <div>
                             <div class="relative h-48 w-full overflow-hidden bg-slate-950">
                                 <img src="assets/dor_ceticismo_digital.jpg" alt="Atração Diária de Times" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
@@ -879,7 +889,7 @@
                     </div>
 
                     <!-- Card 2: Oferta de Kits Completos -->
-                    <div class="bg-[#020d14]/95 border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[20] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
                         <div>
                             <div class="relative h-48 w-full overflow-hidden bg-slate-950">
                                 <img src="assets/dor_peca_unica.jpg" alt="Oferta de Kits Completos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
@@ -903,7 +913,7 @@
                     </div>
 
                     <!-- Card 3: Produção Sem Erros & Margem Alta -->
-                    <div class="bg-[#020d14]/95 border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[30] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
                         <div>
                             <div class="relative h-48 w-full overflow-hidden bg-slate-950">
                                 <img src="assets/dor_desperdicio_fabril.jpg" alt="Produção Sem Erros e Margem Alta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
@@ -927,7 +937,7 @@
                     </div>
 
                     <!-- Card 4: Vendas Recorrentes & Escala -->
-                    <div class="bg-[#020d14]/95 border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[40] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
                         <div>
                             <div class="relative h-48 w-full overflow-hidden bg-slate-950">
                                 <img src="assets/dor_teto_regional.jpg" alt="Vendas Recorrentes e Escala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
@@ -952,44 +962,8 @@
 
                 </div>
 
-                <!-- Banner de Ancoragem de Economia Garantida -->
-                <div class="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-[#041d2b] via-[#052d43] to-[#041d2b] border-2 border-sky-400/40 rounded-3xl p-6 sm:p-8 shadow-[0_0_40px_rgba(56,189,248,0.25)] relative text-center">
-                    
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white/10 pb-6 mb-6 text-center md:text-left">
-                        <div>
-                            <span class="text-xs font-black uppercase tracking-widest text-slate-400 block mb-1">
-                                LUCRO ADICIONAL POTENCIAL:
-                            </span>
-                            <span class="text-3xl sm:text-4xl font-black text-green-400 tracking-tight">
-                                + R$ 40,00 A R$ 50,00 <span class="text-xs font-bold text-slate-300">de margem limpa por uniforme</span>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <p class="text-xs text-slate-300 text-center sm:text-left leading-relaxed">
-                            ⚡ Menos do que o valor de uma única peça para ter o método completo de escala digital e marca esportiva.
-                        </p>
-                        <a href="https://pxa.bfninecamisetas.com.br/lt/ws" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 19.00, currency: 'BRL'}); fbq('trackCustom', 'SubscribedButtonClick', {button_name: 'Garantir Vaga'}); }">
-                            Garantir Meu Ingresso Agora ⚡
-                        </a>
-                    </div>
-
-                </div>
-
-
                 <!-- Bloco de Reforço da Promessa 2 (Dobra Terceirização) -->
                 <div class="mt-16 max-w-[1200px] mx-auto text-left">
-                    
-                    <!-- Banner Superior de Destaque -->
-                    <div class="bg-sky-950/40 border border-sky-500/30 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 sm:mb-10 text-center sm:text-left shadow-lg">
-                        <div class="inline-flex items-center gap-2 rounded-xl border border-sky-500/40 bg-sky-500/10 px-4 py-2 text-xs sm:text-sm font-black uppercase tracking-wider text-sky-300">
-                            📅 Terça, Quarta e Quinta (01, 02 e 03 de Setembro das 19h00 às 22h00)
-                        </div>
-                        <p class="text-xs sm:text-sm italic font-medium text-sky-200/90 text-center sm:text-right">
-                            "O atalho definitivo para ter sua marca de futebol sem gastar fortunas."
-                        </p>
-                    </div>
 
                     <!-- Bloco Principal de Conteúdo -->
                     <div class="bg-[#052637]/70 border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
@@ -1151,13 +1125,13 @@
                             </div>
 
                             <!-- Item 2 -->
-                            <div id="noite1-item-1" onclick="activateCronoItem(1, 1)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
+                            <div id="noite1-item-1" onclick="activateCronoItem(1, 1)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
                                         19H30 às 20H15
                                     </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Design Sem Barreiras & IA</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Design Sem Barreiras & IA</span>
                                 </div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
                                     🎨 Criando Projetos de Uniforme 3D com Softwares Gratuitos e IA
@@ -1168,13 +1142,13 @@
                             </div>
 
                             <!-- Item 3 -->
-                            <div id="noite1-item-2" onclick="activateCronoItem(1, 2)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
+                            <div id="noite1-item-2" onclick="activateCronoItem(1, 2)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
                                         20H15 às 21H00
                                     </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Apresentação & Loja Online</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Apresentação & Loja Online</span>
                                 </div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
                                     🎬 Apresentação 3D Animada para o Cliente & E-commerce da Marca
@@ -1185,13 +1159,13 @@
                             </div>
 
                             <!-- Item 4 -->
-                            <div id="noite1-item-3" onclick="activateCronoItem(1, 3)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
+                            <div id="noite1-item-3" onclick="activateCronoItem(1, 3)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
                                         21H00 às 22H00
                                     </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Lucro Triplicado & Tira-Dúvidas</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Lucro Triplicado & Tira-Dúvidas</span>
                                 </div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
                                     💰 Estratégia para Triplicar Faturamento & Mentoria do 1º Dia
@@ -1227,13 +1201,13 @@
                             </div>
 
                             <!-- Item 1 -->
-                            <div id="noite2-item-0" onclick="activateCronoItem(2, 0)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
+                            <div id="noite2-item-0" onclick="activateCronoItem(2, 0)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
                                         19H00 às 19H30
                                     </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Fechamento de Arquivos</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Fechamento de Arquivos</span>
                                 </div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
                                     📐 Modelando e Preparando o Uniforme sem Erros de Produção
@@ -1244,13 +1218,13 @@
                             </div>
 
                             <!-- Item 2 -->
-                            <div id="noite2-item-1" onclick="activateCronoItem(2, 1)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
+                            <div id="noite2-item-1" onclick="activateCronoItem(2, 1)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
                                         19H30 às 20H30
                                     </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Produção de Fábrica</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Produção de Fábrica</span>
                                 </div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
                                     🏭 Guia Completo de Impressão, Prensa, Costura e Tecidos
@@ -1261,13 +1235,13 @@
                             </div>
 
                             <!-- Item 3 -->
-                            <div id="noite2-item-2" onclick="activateCronoItem(2, 2)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
+                            <div id="noite2-item-2" onclick="activateCronoItem(2, 2)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
                                         20H30 às 21H30
                                     </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Fábrica Sem Máquina</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Fábrica Sem Máquina</span>
                                 </div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
                                     🤝 Terceirização Fulfillment & Rede de Fornecedores Homologados
@@ -1278,13 +1252,13 @@
                             </div>
 
                             <!-- Item 4 -->
-                            <div id="noite2-item-3" onclick="activateCronoItem(2, 3)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
+                            <div id="noite2-item-3" onclick="activateCronoItem(2, 3)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
                                         21H30 às 22H00
                                     </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Mentoria Técnica</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Mentoria Técnica</span>
                                 </div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
                                     💬 Mentoria e Tira-Dúvidas Técnico de Produção Ao Vivo
@@ -1320,13 +1294,13 @@
                             </div>
 
                             <!-- Item 1 -->
-                            <div id="noite3-item-0" onclick="activateCronoItem(3, 0)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
+                            <div id="noite3-item-0" onclick="activateCronoItem(3, 0)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
                                         19H00 às 19H30
                                     </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Anúncios Meta Ads</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Anúncios Meta Ads</span>
                                 </div>
                                 <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
                                     🎯 Tráfego Pago no Facebook & Instagram para Vender Uniformes
@@ -1732,67 +1706,67 @@
                     <div id="dep-img-track" class="flex gap-5 w-max">
                         
                         <!-- Image 1 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_1.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-yellow-500/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_1.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-yellow-500/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_1.png" alt="Comprovante de Resultado Aluno Bfnine 1" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-yellow-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 2 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_2.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-cyan-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_2.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-cyan-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_2.png" alt="Comprovante de Resultado Aluno Bfnine 2" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-cyan-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 3 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_3.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-purple-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_3.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-purple-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_3.png" alt="Comprovante de Resultado Aluno Bfnine 3" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-purple-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 4 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_4.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-sky-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_4.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-sky-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_4.png" alt="Comprovante de Resultado Aluno Bfnine 4" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-sky-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 5 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_5.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-emerald-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_5.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-emerald-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_5.png" alt="Comprovante de Resultado Aluno Bfnine 5" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-emerald-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 6 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_6.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-amber-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_6.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-amber-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_6.png" alt="Comprovante de Resultado Aluno Bfnine 6" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-amber-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 7 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_7.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-rose-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_7.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-rose-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_7.png" alt="Comprovante de Resultado Aluno Bfnine 7" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-rose-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 8 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_8.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-teal-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_8.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-teal-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_8.png" alt="Comprovante de Resultado Aluno Bfnine 8" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-teal-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 9 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_9.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-indigo-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_9.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-indigo-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_9.png" alt="Comprovante de Resultado Aluno Bfnine 9" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-indigo-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 10 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_10.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-lime-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_10.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-lime-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_10.png" alt="Comprovante de Resultado Aluno Bfnine 10" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-lime-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
 
                         <!-- Image 11 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_11.png')" class="flex-shrink-0 w-[220px] sm:w-[280px] lg:w-[300px] h-[270px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-yellow-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_11.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-yellow-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
                             <img src="depoimentos/depoimento_aluno_11.png" alt="Comprovante de Resultado Aluno Bfnine 11" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-yellow-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
                         </div>
@@ -1816,7 +1790,7 @@
                         ⚡ OPORTUNIDADE EXCLUSIVA DE INGRESSO
                     </span>
                     <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                        Garanta seu passaporte ao vivo e transforme sua confecção em uma marca esportiva <span class="text-sky-400">por um preço INACREDITÁVEL:</span>
+                        Garanta seu ingresso ao vivo e transforme sua confecção em uma marca esportiva <span class="text-sky-400">por um preço INACREDITÁVEL:</span>
                     </h2>
                 </div>
 
@@ -1950,7 +1924,7 @@
                         <!-- Cabeçalho Persuasivo com Ancoragem -->
                         <div class="text-center max-w-3xl mx-auto mb-8">
                             <span class="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-emerald-400 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-                                🏭 TUDO O QUE VOCÊ RECEBE NO SEU PASSAPORTE DE ENTRADA
+                                🏭 TUDO O QUE VOCÊ RECEBE NO SEU INGRESSO DE ENTRADA
                             </span>
                             <h4 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
                                 Tudo o que você precisa para padronizar sua fábrica, <span class="text-sky-400">eliminar retrabalho</span> e <span class="text-sky-400">faturar alto com sua marca esportiva</span>
@@ -2671,8 +2645,8 @@
                     }
                 }
                 if (card) {
-                    card.classList.remove(...allBorderClasses, ...allShadowClasses, 'bg-[#052637]/80', 'opacity-100');
-                    card.classList.add('border-white/10', 'bg-[#052637]/50', 'opacity-50');
+                    card.classList.remove(...allBorderClasses, ...allShadowClasses);
+                    card.classList.add('border-yellow-500/40', 'bg-[#051f2d]', 'opacity-100');
                     const cardTitle = card.querySelector('h3');
                     if (cardTitle) {
                         cardTitle.classList.remove(...allTextClasses);
@@ -2692,7 +2666,7 @@
             // Ativar Botão Desktop (Borda + Cor de Texto Alinhada à Imagem)
             if (activeBtn) {
                 activeBtn.classList.remove('opacity-40', 'border-transparent');
-                        activeBtn.classList.add('opacity-100', activeColor.borderDesktop);
+                activeBtn.classList.add('opacity-100', activeColor.borderDesktop);
                 const activeBtnTitle = activeBtn.querySelector('h4');
                 if (activeBtnTitle) {
                     activeBtnTitle.classList.remove('text-white');
@@ -2702,8 +2676,8 @@
             
             // Ativar Card Mobile (Borda + Cor de Texto Alinhada)
             if (activeCard) {
-                activeCard.classList.remove('border-white/10', 'bg-[#052637]/50', 'opacity-50');
-                activeCard.classList.add(activeColor.border, activeColor.shadow, 'bg-[#052637]/90', 'opacity-100');
+                activeCard.classList.remove('border-yellow-500/40');
+                activeCard.classList.add(activeColor.border, activeColor.shadow, 'bg-[#051f2d]', 'opacity-100');
                 const cardTitle = activeCard.querySelector('h3');
                 if (cardTitle) {
                     cardTitle.classList.remove('text-white');
@@ -2760,18 +2734,18 @@
                     const row = document.getElementById(`noite${d}-item-${i}`);
                     if (!row) continue;
                     if (d === day && i === itemIdx) {
-                        row.className = "crono-row cursor-pointer rounded-2xl border border-sky-400 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-[0_0_25px_rgba(56,189,248,0.3)] scale-[1.01]";
+                        row.className = "crono-row cursor-pointer rounded-2xl border-2 border-yellow-400 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-[0_0_25px_rgba(250,204,21,0.3)] scale-[1.01]";
                         const timeSpan = row.querySelector('.text-xl, .text-2xl');
-                        if (timeSpan && !timeSpan.classList.contains('text-amber-400') && !timeSpan.classList.contains('text-emerald-400') && !timeSpan.classList.contains('text-cyan-400')) {
-                            timeSpan.classList.remove('text-slate-300');
-                            timeSpan.classList.add('text-sky-400');
+                        if (timeSpan) {
+                            timeSpan.classList.remove('text-slate-300', 'text-sky-400');
+                            timeSpan.classList.add('text-yellow-400');
                         }
                     } else {
-                        row.className = "crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80";
+                        row.className = "crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400";
                         const timeSpan = row.querySelector('.text-xl, .text-2xl');
-                        if (timeSpan && !timeSpan.classList.contains('text-amber-400') && !timeSpan.classList.contains('text-emerald-400') && !timeSpan.classList.contains('text-cyan-400')) {
-                            timeSpan.classList.remove('text-sky-400');
-                            timeSpan.classList.add('text-slate-300');
+                        if (timeSpan) {
+                            timeSpan.classList.remove('text-yellow-400');
+                            timeSpan.classList.add('text-sky-400');
                         }
                     }
                 }
@@ -2807,6 +2781,7 @@
             }
 
             // 2. Configuração do Canvas HTML5 de Alta Performance no Fundo (Reativo ao Scroll + Suave)
+            if (window.innerWidth < 1024) return; // Ignora carregamento de frames no mobile para velocidade instantânea (< 1s)
             const canvas = document.getElementById('hero-scroll-canvas');
             let ctx = canvas ? canvas.getContext('2d', { alpha: false }) : null;
 
