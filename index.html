@@ -374,29 +374,21 @@
         <!-- SEÇÃO 1: HERO (Alinhamento Limpo & Perfeito dos Textos) -->
         <section id="hero-section" class="w-full relative min-h-screen flex flex-col justify-center pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 bg-[#020d14] overflow-hidden">
             
-            <!-- Fundo Estático Ultra-Leve (SOMENTE NO MOBILE - Carregamento Instantâneo < 1s) -->
-            <div class="block lg:hidden absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#020d14]">
+            <!-- Fundo Estático Ultra-Leve (Vestiário BFNINE - Carregamento Instantâneo < 0.2s) -->
+            <div class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#020d14]">
                 <picture class="w-full h-full block">
-                    <source srcset="assets/hero_mobile.webp" type="image/webp"/>
-                    <img src="assets/hero_mobile.jpg" alt="Elenco Uniformes Esportivos Bfnine" class="w-full h-full object-cover object-center" loading="eager" decoding="async" fetchpriority="high"/>
+                    <source srcset="assets/hero_vestario_bfnine.webp" type="image/webp"/>
+                    <img src="assets/hero_vestario_bfnine.jpg" alt="Elenco Vestiário Bfnine Camisetas" class="w-full h-full object-cover object-center filter brightness-105 contrast-105" loading="eager" decoding="async" fetchpriority="high"/>
                 </picture>
-                <!-- Gradiente para legibilidade perfeita da copy do Hero sobre a imagem original -->
-                <div class="absolute inset-0 bg-gradient-to-b from-[#020d14]/65 via-[#020d14]/35 to-[#020d14]/75 pointer-events-none"></div>
+                <!-- Gradiente Clareado em 15% mantendo alto contraste da copy -->
+                <div class="absolute inset-0 bg-gradient-to-r from-[#020d14]/80 via-[#020d14]/65 to-[#020d14]/50 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#020d14]/75 via-transparent to-[#020d14]/80 pointer-events-none"></div>
             </div>
 
-            <!-- Canvas de Fundo do Hero (EXCLUSIVO NO DESKTOP) -->
-            <div id="canvas-bg-container" class="hidden lg:block absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden bg-[#020d14]">
-                <canvas id="hero-scroll-canvas" class="w-full h-full object-cover filter brightness-100 contrast-110"></canvas>
-                <div class="absolute inset-0 bg-gradient-to-b from-[#020d14]/45 via-[#020d14]/25 to-[#020d14]/55 pointer-events-none"></div>
-            </div>
-
-            <!-- Gradiente Iluminado no Lado Esquerdo (EXCLUSIVO NO DESKTOP) -->
-            <div class="hidden lg:block absolute inset-y-0 left-0 w-full lg:w-[55%] bg-gradient-to-r from-[#020d14]/75 via-[#020d14]/45 to-transparent z-0 pointer-events-none"></div>
-
-            <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left space-y-7 sm:space-y-8 lg:space-y-9 my-auto">
+            <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 sm:space-y-9 lg:space-y-9 my-auto -mt-[10px] lg:mt-0 pt-2 sm:pt-6 lg:pt-0 pb-6 sm:pb-12 lg:pb-0">
                 
                 <!-- 0. Logo Oficial do Workshop da Marca Esportiva -->
-                <div class="animate-fade-in mb-4 sm:mb-5 lg:mb-6">
+                <div class="animate-fade-in mb-3 sm:mb-5 lg:mb-6">
                     <a href="#">
                         <img src="assets/logo_wme_workshop.webp" alt="WME - Workshop da Marca Esportiva" class="h-12 sm:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_4px_20px_rgba(56,189,248,0.25)]"/>
                     </a>
@@ -404,8 +396,8 @@
 
                 <!-- 1. Sobrancelha em Pílula (Badge Estilo Apple com Alto Contraste) -->
                 <div class="animate-fade-in">
-                    <span class="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-950/80 backdrop-blur-md px-4 py-2 text-xs font-bold uppercase tracking-widest text-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
-                        <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span class="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-950/80 backdrop-blur-md px-4 py-2 text-xs font-bold uppercase tracking-widest text-white shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         01, 02 E 03 DE SETEMBRO | DAS 19H00 ÀS 22H00 (AO VIVO)
                     </span>
                 </div>
@@ -413,49 +405,40 @@
                 <!-- 2. Headline Principal Impactante + Subheadline com Contraste Suave -->
                 <div class="animate-fade-in max-w-xl lg:max-w-3xl" style="animation-delay: 0.1s;">
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] sm:leading-[1.15]" style="font-family: Inter, ui-sans-serif, system-ui, sans-serif;">
-                        Crie uma marca esportiva que produz sem erros e que vende em todo o Brasil, <span class="text-sky-400 font-black drop-shadow-[0_0_20px_rgba(56,189,248,0.3)]">em apenas 3 noites.</span>
+                        <span class="text-emerald-400 font-black drop-shadow-[0_0_20px_rgba(52,211,153,0.35)]">Domine</span> a Fabricação Esportiva através da Sublimação em <span class="text-emerald-400 font-black drop-shadow-[0_0_20px_rgba(52,211,153,0.35)]">3 Noites</span> e comece a faturar de <span class="text-emerald-400 font-black drop-shadow-[0_0_20px_rgba(52,211,153,0.35)]">5 a 50 Mil</span> por mês.
                     </h1>
-                    <p class="mt-5 sm:mt-6 lg:mt-7 text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed font-medium tracking-wide max-w-xl lg:max-w-2xl">
-                        Garanta sua vaga no Workshop e aprenda o passo a passo para criar sua linha de uniformes de alta performance, eliminar o desperdício na fábrica e lotar sua agenda de vendas.
+                    <p class="mt-6 sm:mt-7 lg:mt-7 text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed font-medium tracking-wide max-w-xl lg:max-w-2xl">
+                        Aprenda a criar, fabricar e vender fardamentos de futebol profissionais para time de várzea ai da sua cidade, mesmo que você não possua máquinas.
                     </p>
                 </div>
 
-                <!-- 3. Sub-diferenciais em Pílulas com Contraste (Sem Poluição Visual) -->
-                <div class="animate-fade-in flex flex-wrap items-center justify-center lg:justify-start gap-3.5 sm:gap-4 text-xs sm:text-sm font-semibold" style="animation-delay: 0.15s;">
-                    <span class="inline-flex items-center gap-2 rounded-xl bg-slate-900/80 border border-sky-500/20 px-3.5 py-2 text-slate-200 shadow-md">
-                        <span class="text-sky-400 text-sm">🤖</span> IA para Layouts Esportivos 3D
-                    </span>
-                    <span class="text-white/20 font-light hidden sm:inline">|</span>
-                    <span class="inline-flex items-center gap-2 rounded-xl bg-slate-900/80 border border-sky-500/20 px-3.5 py-2 text-slate-200 shadow-md">
-                        <span class="text-sky-400 text-sm">🛡️</span> Produção Blindada Sem Erros
-                    </span>
-                    <span class="text-white/20 font-light hidden sm:inline">|</span>
-                    <span class="inline-flex items-center gap-2 rounded-xl bg-slate-900/80 border border-sky-500/20 px-3.5 py-2 text-slate-200 shadow-md">
-                        <span class="text-sky-400 text-sm">🚀</span> Vendas no Brasil Todo com Meta Ads
-                    </span>
-                </div>
 
-                <!-- 4. Bloco CTA + Barra de Progresso Lado a Lado (Ancoragem R$ 197 por R$ 19) -->
-                <div class="w-full max-w-2xl animate-fade-in pt-4 sm:pt-5 lg:pt-6" style="animation-delay: 0.2s;">
-                    <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 w-full">
+
+                <!-- 4. Bloco CTA + Barra de Progresso Lado a Lado (Ancoragem R$ 197 por R$ 24,90) -->
+                <div class="w-full max-w-2xl animate-fade-in pt-5 sm:pt-8 lg:pt-6 mt-3 sm:mt-6 lg:mt-0" style="animation-delay: 0.2s;">
+                    <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 w-full">
                         
-                        <!-- Botão Pílula Luminoso com Ancoragem de R$ 197 por R$ 19 -->
+                        <!-- Botão Pílula Luminoso com Ancoragem de R$ 197 por R$ 24,90 -->
                         <a href="#comprar" class="group relative inline-flex items-center justify-between gap-4 rounded-full bg-gradient-to-r from-blue-600/90 via-sky-500/90 to-blue-700/90 border border-sky-400/50 hover:border-white p-1.5 pl-6 shadow-[0_0_30px_rgba(56,189,248,0.4)] hover:shadow-[0_0_40px_rgba(56,189,248,0.7)] transition-all duration-300 w-full sm:w-auto min-w-[280px]">
                             <span class="text-sm sm:text-base font-extrabold text-white tracking-wide">
-                                de <span class="line-through opacity-70 text-slate-200">R$ 197</span> por <span class="text-yellow-300 font-black text-lg sm:text-xl">R$ 19</span>
+                                de <span class="line-through opacity-70 text-slate-200">R$ 197</span> por <span class="text-yellow-300 font-black text-lg sm:text-xl">R$ 24,90</span>
                             </span>
                             <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sky-400 text-slate-950 flex items-center justify-center font-black group-hover:translate-x-1 transition-transform shadow-md">
                                 ➔
                             </span>
                         </a>
 
-                        <!-- Barra de Progresso + Escassez -->
-                        <div class="flex-1 w-full space-y-2">
-                            <div class="w-full bg-slate-800/80 rounded-full h-2.5 overflow-hidden border border-white/10 p-0.5">
-                                <div class="bg-gradient-to-r from-blue-500 via-sky-400 to-cyan-300 h-full rounded-full transition-all duration-500" style="width: 97%;"></div>
+                        <!-- Barra de Progresso + Escassez (Meio-Termo Elegante sem Ofuscar o CTA) -->
+                        <div class="flex-1 w-full space-y-2 pt-3 sm:pt-1">
+                            <div class="flex items-center justify-between text-[11px] sm:text-xs font-bold tracking-wide">
+                                <span class="text-amber-400 flex items-center gap-1.5"><span class="animate-pulse">🔥</span> Lote 1 quase esgotado</span>
+                                <span class="text-sky-300 font-extrabold">77% Vendidos</span>
                             </div>
-                            <p class="text-[11px] sm:text-xs text-slate-300 font-medium tracking-wide text-center sm:text-left">
-                                <span class="font-bold text-white">97%</span> dos ingressos vendidos de <span class="line-through text-slate-400">R$ 197,00</span> por <span class="text-sky-300 font-bold">R$ 19,00</span>
+                            <div class="w-full bg-slate-900/90 rounded-full h-3 overflow-hidden border border-sky-500/30 p-0.5 shadow-inner">
+                                <div class="bg-gradient-to-r from-emerald-500 via-sky-400 to-cyan-300 h-full rounded-full transition-all duration-500" style="width: 77%;"></div>
+                            </div>
+                            <p class="text-[11px] text-slate-300 font-medium tracking-wide text-center sm:text-left">
+                                <span class="font-bold text-white">77%</span> dos ingressos vendidos de <span class="line-through text-slate-400">R$ 197,00</span> por <span class="text-yellow-300 font-bold">R$ 24,90</span>
                             </p>
                         </div>
 
@@ -465,25 +448,367 @@
             </div>
         </section>
 
+        <!-- SEÇÃO 6: DEPOIMENTOS & PROVAS SOCIAIS DE ALUNOS (Sticky Wrapper Top-0 Unificado + Ambientação Vestiário Futebol HD) -->
+        <section id="depoimentos-section" class="w-full relative bg-slate-100 border-t-4 border-emerald-500 shadow-2xl pt-10 sm:pt-14 pb-12 sm:pb-16">
+            
+            <!-- Imagem de Fundo Ambiental do Vestiário Profissional EA FC -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_vestiario_hd.webp');"></div>
+
+            <div id="sticky-dep-wrapper" class="w-full bg-slate-100 py-2 sm:py-4 z-[20]">
+                
+                <!-- Header Fixo no Topo do Wrapper Sticky -->
+                <div class="w-full text-center max-w-3xl mx-auto px-4 flex-shrink-0 pt-4 sm:pt-6">
+                    <span class="inline-flex items-center rounded-full bg-amber-500 text-slate-950 font-black px-4 py-1.5 text-xs uppercase tracking-widest shadow-md rounded-full mb-2">
+                        💬 RESULTADOS COMPROVADOS DE ALUNOS
+                    </span>
+                    <h2 class="text-base sm:text-2xl font-black text-slate-900 tracking-tight mt-1 sm:mt-1.5 leading-tight">
+                        Quem Aprendeu o Método Bfnine e Vive de Uniformes de Futebol
+                    </h2>
+                    <div class="mt-1 sm:mt-1.5 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
+                </div>
+
+                <!-- Conteúdo dos Carrosséis (Texto em Loop + Prints no Scroll) -->
+                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center flex-grow py-2">
+
+                    <!-- FILEIRA 1: Depoimentos em Texto (Loop Infinito Contínuo Marquee) -->
+                    <div id="dep-text-container" class="overflow-hidden w-full relative scrollbar-none mb-5 flex-shrink-0">
+                        <div id="dep-text-track" class="animate-marquee-infinite gap-5">
+                            
+                            <!-- Bloco Original (7 Depoimentos do Público 3) -->
+                            <div class="flex gap-5 flex-shrink-0">
+                                <!-- Depoimento 1 -->
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-yellow-500/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                                <img src="assets/res_aluno_1.webp" alt="Lucas Fonseca" class="w-full h-full object-cover"/>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Lucas Fonseca</h4>
+                                                <p class="text-[10px] text-yellow-400 font-semibold">Fonseca Confecções - SC</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Minha confecção vivia brigando por centavos vendendo camiseta básica. Quando apliquei o Método Bfnine, padronizei os gabaritos e criei nossa linha esportiva própria. Hoje cobramos R$ 95 por uniforme e a margem limpa da fábrica subiu para mais de R$ 45 por peça!"
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Depoimento 2 -->
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-cyan-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                                <img src="assets/res_aluno_2.webp" alt="Gabriela Medeiros" class="w-full h-full object-cover"/>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Gabriela Medeiros</h4>
+                                                <p class="text-[10px] text-cyan-400 font-semibold">Gabi Sublimação - SP</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "O maior gargalo na minha estamparia era o desperdício de papel e tecido por erro de encaixe e gola torta. Com as fichas técnicas e moldes 3D ensinados no workshop, eliminamos o retrabalho no chão de fábrica e aumentamos nossa capacidade em 40%."
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Depoimento 3 -->
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-purple-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-black text-sm flex-shrink-0 uppercase">
+                                                FS
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Felipe Souza</h4>
+                                                <p class="text-[10px] text-purple-400 font-semibold">Souza Sportswear - RJ</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Nossas máquinas de costura e prensa ficavam paradas quase meio mês por falta de pedidos recorrentes. O workshop me ensinou a vender direto para diretores de clubes e empresas. Hoje a fábrica roda a plena capacidade e com margem alta!"
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Depoimento 4 -->
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-sky-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-black text-sm flex-shrink-0 uppercase">
+                                                RM
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Rodrigo Mendes</h4>
+                                                <p class="text-[10px] text-sky-400 font-semibold">Mendes Confecções - MG</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Eu tinha um maquinário bom na oficina mas não sabia como transformar aquilo em uma marca forte. O passo a passo de posicionamento e mockups 3D foi fantástico: fechamos um fardamento completo de R$ 8.500 para uma liga regional no primeiro mês!"
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Depoimento 5 -->
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-emerald-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-sm flex-shrink-0 uppercase">
+                                                MO
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Mateus Oliveira</h4>
+                                                <p class="text-[10px] text-emerald-400 font-semibold">Oliveira Têxtil - PR</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Quando vinha pico de demanda na confecção, a gente se desesperava com atrasos. Com a rede de terceirização e padronização do Método Bfnine, agora transbordamos o excedente de costura com total controle de qualidade. Não perdemos mais nenhum cliente!"
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Depoimento 6 -->
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-amber-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-black text-sm flex-shrink-0 uppercase">
+                                                RR
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Renan Ramos</h4>
+                                                <p class="text-[10px] text-amber-400 font-semibold">RR Fábrica de Uniformes - SP</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Trabalhava 14 horas por dia na oficina apagando incêndio e a conta não fechava no fim do mês. Aprendi a estruturar a precificação e criar kits premium de futebol. Dobramos o faturamento da fábrica mantendo o mesmo número de costureiras."
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Depoimento 7 -->
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-green-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0 uppercase">
+                                                DC
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Diego Castro</h4>
+                                                <p class="text-[10px] text-green-400 font-semibold">Castro Confecções - BA</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Antes a gente sofria com golas manchadas na calandra e tom de cor desalinhado. A padronização de arquivos e o processo fabril do método Bfnine deram padrão profissional de Série A aos nossos fardamentos. Os diretores de times viraram clientes fiéis!"
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bloco Duplicado para Loop Infinito Contínuo (100% Sem Emenda) -->
+                            <div class="flex gap-5 flex-shrink-0" aria-hidden="true">
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-yellow-500/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                                <img src="assets/res_aluno_1.webp" alt="Lucas Fonseca" class="w-full h-full object-cover"/>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Lucas Fonseca</h4>
+                                                <p class="text-[10px] text-yellow-400 font-semibold">Fonseca Confecções - SC</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Minha confecção vivia brigando por centavos vendendo camiseta básica. Quando apliquei o Método Bfnine, padronizei os gabaritos e criei nossa linha esportiva própria. Hoje cobramos R$ 95 por uniforme e a margem limpa da fábrica subiu para mais de R$ 45 por peça!"
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-cyan-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                                <img src="assets/res_aluno_2.webp" alt="Gabriela Medeiros" class="w-full h-full object-cover"/>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Gabriela Medeiros</h4>
+                                                <p class="text-[10px] text-cyan-400 font-semibold">Gabi Sublimação - SP</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "O maior gargalo na minha estamparia era o desperdício de papel e tecido por erro de encaixe e gola torta. Com as fichas técnicas e moldes 3D ensinados no workshop, eliminamos o retrabalho no chão de fábrica e aumentamos nossa capacidade em 40%."
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-purple-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-black text-sm flex-shrink-0 uppercase">
+                                                FS
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Felipe Souza</h4>
+                                                <p class="text-[10px] text-purple-400 font-semibold">Souza Sportswear - RJ</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Nossas máquinas de costura e prensa ficavam paradas quase meio mês por falta de pedidos recorrentes. O workshop me ensinou a vender direto para diretores de clubes e empresas. Hoje a fábrica roda a plena capacidade e com margem alta!"
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-sky-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-black text-sm flex-shrink-0 uppercase">
+                                                RM
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Rodrigo Mendes</h4>
+                                                <p class="text-[10px] text-sky-400 font-semibold">Mendes Confecções - MG</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Eu tinha um maquinário bom na oficina mas não sabia como transformar aquilo em uma marca forte. O passo a passo de posicionamento e mockups 3D foi fantástico: fechamos um fardamento completo de R$ 8.500 para uma liga regional no primeiro mês!"
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-emerald-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-sm flex-shrink-0 uppercase">
+                                                MO
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Mateus Oliveira</h4>
+                                                <p class="text-[10px] text-emerald-400 font-semibold">Oliveira Têxtil - PR</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Quando vinha pico de demanda na confecção, a gente se desesperava com atrasos. Com a rede de terceirização e padronização do Método Bfnine, agora transbordamos o excedente de costura com total controle de qualidade. Não perdemos mais nenhum cliente!"
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-amber-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-black text-sm flex-shrink-0 uppercase">
+                                                RR
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Renan Ramos</h4>
+                                                <p class="text-[10px] text-amber-400 font-semibold">RR Fábrica de Uniformes - SP</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Trabalhava 14 horas por dia na oficina apagando incêndio e a conta não fechava no fim do mês. Aprendi a estruturar a precificação e criar kits premium de futebol. Dobramos o faturamento da fábrica mantendo o mesmo número de costureiras."
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-green-400/20 bg-white p-4 sm:p-5 flex flex-col justify-between shadow-lg border border-slate-200">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
+                                            <div class="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0 uppercase">
+                                                DC
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Diego Castro</h4>
+                                                <p class="text-[10px] text-green-400 font-semibold">Castro Confecções - BA</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
+                                            "Antes a gente sofria com golas manchadas na calandra e tom de cor desalinhado. A padronização de arquivos e o processo fabril do método Bfnine deram padrão profissional de Série A aos nossos fardamentos. Os diretores de times viraram clientes fiéis!"
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                <!-- FILEIRA 2: Prints de Resultados dos Alunos (Mobile = Sticky Stack / Desktop = Carrossel Horizontal) -->
+                <div id="dep-img-container" class="w-full relative max-lg:max-w-2xl max-lg:mx-auto pt-6 pb-12 px-2 lg:px-0 lg:overflow-x-auto lg:scrollbar-none">
+                    <div id="dep-img-track" class="max-lg:space-y-6 lg:grid lg:grid-cols-4 lg:gap-6 lg:w-full lg:max-w-7xl lg:mx-auto">
+                        
+                        <!-- Image 1 -->
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_1.png')" class="max-lg:sticky max-lg:top-[90px] max-lg:z-[10] max-lg:w-full max-lg:max-w-[440px] max-lg:mx-auto max-lg:h-[480px] lg:w-full lg:h-[420px] lg:relative lg:top-0 lg:z-auto rounded-3xl border-2 border-yellow-500/40 bg-slate-950 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group cursor-pointer relative transition-all duration-300 hover:scale-[1.02]">
+                            <img src="depoimentos/depoimento_aluno_1.png" alt="Comprovante de Resultado Aluno Bfnine 1" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
+                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-yellow-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
+                        </div>
+
+                        <!-- Image 2 -->
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_2.png')" class="max-lg:sticky max-lg:top-[110px] max-lg:z-[20] max-lg:w-full max-lg:max-w-[440px] max-lg:mx-auto max-lg:h-[480px] lg:w-full lg:h-[420px] lg:relative lg:top-0 lg:z-auto rounded-3xl border-2 border-cyan-400/40 bg-slate-950 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group cursor-pointer relative transition-all duration-300 hover:scale-[1.02]">
+                            <img src="depoimentos/depoimento_aluno_2.png" alt="Comprovante de Resultado Aluno Bfnine 2" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
+                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-cyan-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
+                        </div>
+
+                        <!-- Image 3 -->
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_3.png')" class="max-lg:sticky max-lg:top-[130px] max-lg:z-[30] max-lg:w-full max-lg:max-w-[440px] max-lg:mx-auto max-lg:h-[480px] lg:w-full lg:h-[420px] lg:relative lg:top-0 lg:z-auto rounded-3xl border-2 border-purple-400/40 bg-slate-950 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group cursor-pointer relative transition-all duration-300 hover:scale-[1.02]">
+                            <img src="depoimentos/depoimento_aluno_3.png" alt="Comprovante de Resultado Aluno Bfnine 3" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
+                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-purple-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
+                        </div>
+
+                        <!-- Image 4 -->
+                        <div onclick="openImageModal('depoimentos/depoimento_aluno_4.png')" class="max-lg:sticky max-lg:top-[150px] max-lg:z-[40] max-lg:w-full max-lg:max-w-[440px] max-lg:mx-auto max-lg:h-[480px] lg:w-full lg:h-[420px] lg:relative lg:top-0 lg:z-auto rounded-3xl border-2 border-sky-400/40 bg-slate-950 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group cursor-pointer relative transition-all duration-300 hover:scale-[1.02]">
+                            <img src="depoimentos/depoimento_aluno_4.png" alt="Comprovante de Resultado Aluno Bfnine 4" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
+                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-sky-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+
+        <!-- SEÇÃO 3ª DOBRA: MERCADO EM ALTA (GOOGLE TRENDS) -->
+        <section id="mercado-section" class="w-full bg-[#020d14] border-t border-white/5 py-12 sm:py-16 relative z-20">
+            <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+                <!-- NOVA SEÇÃO BRANCA: MERCADO EM ALTA (GOOGLE TRENDS) -->
+                <div class="mt-12 w-full rounded-[32px] bg-white text-slate-900 p-6 sm:p-10 lg:p-12 shadow-2xl text-center relative overflow-hidden transition-all duration-300 border border-slate-100">
+                    
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-200 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-blue-600 mb-4 shadow-sm">
+                        📈 MERCADO EM EXPANSÃO
+                    </span>
+
+                    <h3 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
+                        Será que você está olhando para um mercado em alta?
+                    </h3>
+                    
+                    <p class="text-sm sm:text-base md:text-lg text-slate-600 mt-3 sm:mt-4 leading-relaxed font-semibold max-w-2xl mx-auto">
+                        Veja o crescimento das buscas por esse tema nos últimos 5 anos.
+                    </p>
+
+                    <!-- Gráfico Responsivo Leve -->
+                    <div class="mt-6 sm:mt-8 w-full max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-white p-2 sm:p-4">
+                        <img src="assets/google_trends_grafico.png" alt="Gráfico Google Trends - Crescimento de buscas nos últimos 5 anos" class="w-full h-auto object-contain rounded-xl sm:rounded-2xl" loading="lazy" decoding="async"/>
+                    </div>
+            </div>
+        </section>
+
+
         <!-- SEÇÃO 2: A REALIDADE E AS DORES DO FABRICANTE SEM ESCALA DIGITAL (4 Cards Focados) -->
-        <section id="dores-section" class="w-full bg-[#051f2d] border-t border-white/5 relative z-20 h-auto lg:min-h-[160vh] py-8 lg:py-0">
+        <section id="dores-section" class="w-full bg-slate-100 border-t-4 border-red-500 shadow-2xl relative z-20 h-auto lg:min-h-[160vh] py-8 lg:py-0">
             
             <!-- Imagem de Fundo Ambiental Chuteira e Gramado de Estádio -->
-            <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_chuteira_campo.webp');"></div>
+            
 
             <div id="sticky-dores-wrapper" class="relative lg:sticky lg:top-0 flex flex-col justify-start pt-4 lg:pt-8 w-full z-30 h-auto lg:min-h-screen pb-4 lg:pb-6">
                 <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 py-2 lg:py-4 relative flex flex-col justify-start h-auto">
                 
                 <!-- Sobrancelha e Título da Seção 2 Conectado com a Hero Headline -->
                 <div class="mb-6 lg:mb-8 text-center max-w-3xl mx-auto animate-on-scroll">
-                    <span class="inline-flex items-center rounded-full border border-red-500/30 bg-red-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-red-400">
+                    <span class="inline-flex items-center rounded-full bg-red-600 text-white font-black px-4 py-1.5 text-xs uppercase tracking-widest shadow-md rounded-full">
                         ❌ OS GARGALOS QUE TRAVAM SEU LUCRO
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight leading-tight">
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-4 tracking-tight leading-tight">
                         Por Que a Maioria Falha ao Tentar Criar ou Escalar uma Marca Esportiva?
                     </h2>
                     <div class="mt-4 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-                    <p class="text-sm sm:text-base text-slate-200 mt-4 leading-relaxed">
+                    <p class="text-sm sm:text-base text-slate-700 font-medium mt-4 leading-relaxed">
                         Seja você um iniciante do zero ou dono de confecção, o seu lucro e crescimento ficam travados quando você cai nestes 4 gargalos:
                     </p>
                     
@@ -494,13 +819,13 @@
                 </div>
 
                 <!-- Contêiner de Cards com Scroll Transform (Desktop) e Touch Swipe (Mobile) -->
-                <div id="dores-track-container" class="overflow-x-auto lg:overflow-hidden w-full relative scrollbar-none pb-8 pt-2 snap-x snap-mandatory px-4 sm:px-6">
-                    <div id="dores-track" class="flex gap-4 sm:gap-6 items-stretch transition-transform duration-100 ease-out">
+                <div id="dores-track-container" class="w-full relative max-w-7xl mx-auto pt-4 px-4 sm:px-6">
+                    <div id="dores-track" class="max-lg:space-y-6 lg:grid lg:grid-cols-4 lg:gap-6">
                 
                 <!-- Card 1: Erros & Desperdício na Produção -->
-                <div class="snap-start flex-shrink-0 w-[76vw] max-w-[330px] sm:w-[330px] min-h-0 rounded-3xl border-2 border-red-500/30 bg-[#052637]/95 overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-red-500 hover:shadow-red-500/20 hover:-translate-y-1 group animate-on-scroll" style="border-radius: 28px;">
+                <div class="sticky top-[90px] z-[10] w-full rounded-3xl border-2 border-red-500/50 bg-[#020d14] overflow-hidden flex flex-col sm:flex-row justify-between shadow-[0_15px_40px_rgba(0,0,0,0.9)] transition-all duration-300 group" style="border-radius: 28px;">
                     <div class="flex-1 flex flex-col justify-start">
-                        <div class="w-full h-32 sm:h-36 overflow-hidden relative flex-shrink-0">
+                        <div class="w-full h-52 sm:h-56 lg:h-44 overflow-hidden relative flex-shrink-0">
                             <img src="assets/dor_desperdicio_fabril.jpg" alt="Desperdício na fábrica" class="w-full h-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-[#052637] via-[#052637]/20 to-transparent"></div>
                         </div>
@@ -518,9 +843,9 @@
                 </div>
 
                 <!-- Card 2: Preso no Mercado Regional -->
-                <div class="snap-start flex-shrink-0 w-[76vw] max-w-[330px] sm:w-[330px] min-h-0 rounded-3xl border-2 border-red-500/30 bg-[#052637]/95 overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-red-500 hover:shadow-red-500/20 hover:-translate-y-1 group animate-on-scroll" style="border-radius: 28px; animation-delay: 0.1s;">
+                <div class="sticky top-[110px] z-[20] w-full rounded-3xl border-2 border-red-500/50 bg-[#020d14] overflow-hidden flex flex-col sm:flex-row justify-between shadow-[0_15px_40px_rgba(0,0,0,0.9)] transition-all duration-300 group" style="border-radius: 28px; animation-delay: 0.1s;">
                     <div class="flex-1 flex flex-col justify-start">
-                        <div class="w-full h-32 sm:h-36 overflow-hidden relative flex-shrink-0">
+                        <div class="w-full h-52 sm:h-56 lg:h-44 overflow-hidden relative flex-shrink-0">
                             <img src="assets/dor_teto_regional.jpg" alt="Produção travada no regional" class="w-full h-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-[#052637] via-[#052637]/20 to-transparent"></div>
                         </div>
@@ -538,9 +863,9 @@
                 </div>
 
                 <!-- Card 3: Guerra de Preços & Pouco Lucro -->
-                <div class="snap-start flex-shrink-0 w-[76vw] max-w-[330px] sm:w-[330px] min-h-0 rounded-3xl border-2 border-red-500/30 bg-[#052637]/95 overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-red-500 hover:shadow-red-500/20 hover:-translate-y-1 group animate-on-scroll" style="border-radius: 28px; animation-delay: 0.2s;">
+                <div class="sticky top-[130px] z-[30] w-full rounded-3xl border-2 border-red-500/50 bg-[#020d14] overflow-hidden flex flex-col sm:flex-row justify-between shadow-[0_15px_40px_rgba(0,0,0,0.9)] transition-all duration-300 group" style="border-radius: 28px; animation-delay: 0.2s;">
                     <div class="flex-1 flex flex-col justify-start">
-                        <div class="w-full h-32 sm:h-36 overflow-hidden relative flex-shrink-0">
+                        <div class="w-full h-52 sm:h-56 lg:h-44 overflow-hidden relative flex-shrink-0">
                             <img src="assets/dor_guerra_precos.webp" alt="Guerra de preços e baixo lucro" class="w-full h-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-[#052637] via-[#052637]/20 to-transparent"></div>
                         </div>
@@ -558,9 +883,9 @@
                 </div>
 
                 <!-- Card 4: Falta de Método Validador -->
-                <div class="snap-start flex-shrink-0 w-[76vw] max-w-[330px] sm:w-[330px] min-h-0 rounded-3xl border-2 border-red-500/30 bg-[#052637]/95 overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-red-500 hover:shadow-red-500/20 hover:-translate-y-1 group animate-on-scroll" style="border-radius: 28px; animation-delay: 0.3s;">
+                <div class="sticky top-[150px] z-[40] w-full rounded-3xl border-2 border-red-500/50 bg-[#020d14] overflow-hidden flex flex-col sm:flex-row justify-between shadow-[0_15px_40px_rgba(0,0,0,0.9)] transition-all duration-300 group" style="border-radius: 28px; animation-delay: 0.3s;">
                     <div class="flex-1 flex flex-col justify-start">
-                        <div class="w-full h-32 sm:h-36 overflow-hidden relative flex-shrink-0">
+                        <div class="w-full h-52 sm:h-56 lg:h-44 overflow-hidden relative flex-shrink-0">
                             <img src="assets/dor_maquina_cara.webp" alt="Falta de método e altos investimentos" class="w-full h-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-[#052637] via-[#052637]/20 to-transparent"></div>
                         </div>
@@ -580,6 +905,218 @@
             </div>
             </div>
         </div>
+        </section>
+
+        <!-- SEÇÃO 3.5: A MATEMÁTICA E O PODER DA ESCALA DIGITAL -->
+        <section class="w-full bg-[#051f2d] border-t border-b border-white/5 py-16 sm:py-20 lg:py-24 relative z-40 shadow-2xl">
+            
+            <!-- Glow de fundo -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none"></div>
+
+            <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-20 text-center">
+                
+                <!-- Sobrancelha em Destaque Alerta Red -->
+                <div class="mb-6 inline-block">
+                    <span class="inline-flex items-center gap-2 rounded-xl border-2 border-emerald-500/60 bg-emerald-500/20 px-5 py-2.5 text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 shadow-[0_0_25px_rgba(16,185,129,0.3)]">
+                        ⚡ A MATEMÁTICA DA MARCA ESPORTIVA
+                    </span>
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
+                    A Matemática do Lucro: Como Ter um Negócio de Uniformes Esportivos que Fatura de R$ 3.000 a R$ 15.000 por Pedido
+                </h2>
+                <p class="text-base sm:text-lg text-slate-200 mt-4 leading-relaxed max-w-2xl mx-auto font-medium">
+                    Seja terceirizando a produção sem comprar máquinas ou escalando sua própria confecção, veja como a matemática da marca esportiva gera margens limpas e vendas previsíveis:
+                </p>
+
+                <!-- Grid dos 4 Cards Visuais (Sticky Stack Cards EXCLUSIVO no Mobile / Grid no Desktop) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mt-8 relative">
+                    
+                    <!-- Card 1: Atração Diária de Times -->
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[10] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
+                        <div>
+                            <div class="relative h-48 w-full overflow-hidden bg-slate-950">
+                                <img src="assets/dor_ceticismo_digital.jpg" alt="Atração Diária de Times" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#020d14] via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider leading-snug">
+                                    Atração Diária de Times
+                                </h3>
+                                <span class="text-2xl font-black text-emerald-400 block tracking-tight my-2.5">3 a 5 pedidos/dia</span>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+                                    Anúncios simples no WhatsApp trazendo diretores de times amadores de todo o Brasil sem depender do boca a boca local.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-2">
+                            <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-wider block border-t border-white/10 pt-3">
+                                ✅ Demanda Nacional Previsível
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Oferta de Kits Completos -->
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[20] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
+                        <div>
+                            <div class="relative h-48 w-full overflow-hidden bg-slate-950">
+                                <img src="assets/dor_peca_unica.jpg" alt="Oferta de Kits Completos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#020d14] via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider leading-snug">
+                                    Oferta de Kits Completos
+                                </h3>
+                                <span class="text-2xl font-black text-emerald-400 block tracking-tight my-2.5">R$ 3.000+ por time</span>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+                                    Transformar pedidos de camisas soltas em pacotes com calção, meião e agasalhos para triplicar o ticket médio de cada venda.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-2">
+                            <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-wider block border-t border-white/10 pt-3">
+                                ✅ Ticket Médio 3x Maior
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Produção Sem Erros & Margem Alta -->
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[30] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
+                        <div>
+                            <div class="relative h-48 w-full overflow-hidden bg-slate-950">
+                                <img src="assets/dor_desperdicio_fabril.jpg" alt="Produção Sem Erros e Margem Alta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#020d14] via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider leading-snug">
+                                    Produção Sem Erros & Margem
+                                </h3>
+                                <span class="text-2xl font-black text-emerald-400 block tracking-tight my-2.5">+ 100% de Margem</span>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+                                    Gabaritos profissionais e processos sem refação que eliminam o desperdício de insumos e garantem lucro real no caixa.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-2">
+                            <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-wider block border-t border-white/10 pt-3">
+                                ✅ Lucro Preservado Sem Refações
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Vendas Recorrentes & Escala -->
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[40] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
+                        <div>
+                            <div class="relative h-48 w-full overflow-hidden bg-slate-950">
+                                <img src="assets/dor_teto_regional.jpg" alt="Vendas Recorrentes e Escala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#020d14] via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider leading-snug">
+                                    Vendas Recorrentes & Escala
+                                </h3>
+                                <span class="text-2xl font-black text-emerald-400 block tracking-tight my-2.5">Clientes Fiéis Todo Mês</span>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+                                    Times de futebol trocam de uniforme todo ano e disputam campeonatos novos. Crie uma carteira de clubes recorrentes que compram continuamente.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-2">
+                            <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-wider block border-t border-white/10 pt-3">
+                                ✅ Recorrência e Caixa Seguro
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SEÇÃO 4: CRONOGRAMA DAS 3 NOITES (Layout Centralizado + Sticky Stack Cards em Camadas 3D) -->
+        <section id="cronograma-3d-section" class="w-full relative z-20 border-t-2 border-b-2 border-sky-500/30 bg-[#051f2d] py-16 lg:py-24 shadow-2xl">
+            
+            <!-- Glows de Fundo Atmosféricos -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none"></div>
+
+            <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 relative z-20">
+                
+                <!-- Título e Subtítulo Centralizados no Topo -->
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-amber-400 mb-3 shadow-[0_0_15px_rgba(251,191,36,0.2)]">
+                        📅 PROGRAMAÇÃO OFICIAL DO EVENTO
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+                        Cronograma
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-200 mt-3 font-medium leading-relaxed max-w-xl mx-auto">
+                        Agenda oficial das 3 noites do Workshop da Marca Esportiva (das 19h00 às 22h00).
+                    </p>
+                    <p class="text-xs text-slate-400/90 italic mt-2 leading-relaxed max-w-2xl mx-auto border-t border-white/10 pt-3">
+                        *Considere encerrar mais tarde, caso os participantes peçam para nos aprofundarmos em algum ponto. Porém, o conteúdo combinado será entregue dentro do horário programado (das 19h00 às 22h00).
+                    </p>
+                </div>
+
+                <!-- Cards do Cronograma: Mobile = Sticky Stack / Desktop = Grid de 3 Colunas -->
+                <div class="max-w-7xl mx-auto max-lg:space-y-8 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0 relative">
+                    
+                    <!-- 1ª NOITE -->
+                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[10] rounded-3xl border-2 border-amber-400 bg-[#020d14] p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] transition-all duration-300 hover:border-amber-300 lg:relative lg:top-0 lg:z-auto flex flex-col justify-between">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4 mb-4">
+                            <span class="inline-flex items-center gap-2 font-black text-amber-400 text-sm sm:text-base tracking-wider uppercase">
+                                <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+                                1ª NOITE: TERÇA-FEIRA (01/09) • 19H00 ÀS 22H00
+                            </span>
+                            <span class="text-xs font-black uppercase tracking-widest bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full border border-amber-400/40">
+                                🎨 CRIAÇÃO & MERCADO
+                            </span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-black text-white leading-snug">
+                            Criando um projeto de uniforme, camisa de torcida e agasalhos personalizado do zero.
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-200 mt-3 leading-relaxed font-medium">
+                            Conhecendo o mercado milionário do futebol de várzea e aprendendo o passo a passo prático para criar layouts 3D profissionais que encantam diretores de times e empresas.
+                        </p>
+                    </div>
+
+                    <!-- 2ª NOITE -->
+                    <div class="max-lg:sticky max-lg:top-[120px] max-lg:z-[20] rounded-3xl border-2 border-sky-400 bg-[#020d14] p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] transition-all duration-300 hover:border-sky-300 lg:relative lg:top-0 lg:z-auto flex flex-col justify-between">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4 mb-4">
+                            <span class="inline-flex items-center gap-2 font-black text-sky-400 text-sm sm:text-base tracking-wider uppercase">
+                                <span class="w-3 h-3 rounded-full bg-sky-400 animate-pulse"></span>
+                                2ª NOITE: QUARTA-FEIRA (02/09) • 19H00 ÀS 22H00
+                            </span>
+                            <span class="text-xs font-black uppercase tracking-widest bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-400/40">
+                                🏭 PRODUÇÃO FABRIL
+                            </span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-black text-white leading-snug">
+                            Produzindo o uniforme, agasalho e camisa de torcida na prática.
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-200 mt-3 leading-relaxed font-medium">
+                            Aprenda tudo sobre tipos de tecido, máquinas, mitos do mercado e rede de fornecedores para entregar produtos com acabamento de Série A e zero desperdício.
+                        </p>
+                    </div>
+
+                    <!-- 3ª NOITE -->
+                    <div class="max-lg:sticky max-lg:top-[140px] max-lg:z-[30] rounded-3xl border-2 border-emerald-400 bg-[#020d14] p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] transition-all duration-300 hover:border-emerald-300 lg:relative lg:top-0 lg:z-auto flex flex-col justify-between">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4 mb-4">
+                            <span class="inline-flex items-center gap-2 font-black text-emerald-400 text-sm sm:text-base tracking-wider uppercase">
+                                <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+                                3ª NOITE: QUINTA-FEIRA (03/09) • 19H00 ÀS 22H00
+                            </span>
+                            <span class="text-xs font-black uppercase tracking-widest bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-400/40">
+                                🚀 VENDAS & TRÁFEGO PAGO
+                            </span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-black text-white leading-snug">
+                            Vendendo nossos produtos na internet através de tráfego pago no Facebook, Instagram, Google e YouTube.
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-200 mt-3 leading-relaxed font-medium">
+                            Estrutura prática de anúncios e scripts de vendas no WhatsApp para atrair diretores de times de todo o Brasil e lotar a agenda da sua marca com vendas diárias.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
 
         <!-- SEÇÃO 3: PROCESSO COMPLETO (Visualizador Interativo de 7 Passos com Trava na Subheadline) -->
@@ -839,482 +1376,7 @@
                 </div>
             </div>
         </section>
-        <!-- SEÇÃO 3.5: A MATEMÁTICA E O PODER DA ESCALA DIGITAL -->
-        <section class="w-full bg-[#051f2d] border-t border-b border-white/5 py-16 sm:py-20 lg:py-24 relative z-40 shadow-2xl overflow-hidden">
-            
-            <!-- Glow de fundo -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-
-            <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-20 text-center">
-                
-                <!-- Sobrancelha em Destaque Alerta Red -->
-                <div class="mb-6 inline-block">
-                    <span class="inline-flex items-center gap-2 rounded-xl border-2 border-emerald-500/60 bg-emerald-500/20 px-5 py-2.5 text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 shadow-[0_0_25px_rgba(16,185,129,0.3)]">
-                        ⚡ A MATEMÁTICA DA MARCA ESPORTIVA
-                    </span>
-                </div>
-
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
-                    A Matemática do Lucro: Como Ter um Negócio de Uniformes Esportivos que Fatura de R$ 3.000 a R$ 15.000 por Pedido
-                </h2>
-                <p class="text-base sm:text-lg text-slate-200 mt-4 leading-relaxed max-w-2xl mx-auto font-medium">
-                    Seja terceirizando a produção sem comprar máquinas ou escalando sua própria confecção, veja como a matemática da marca esportiva gera margens limpas e vendas previsíveis:
-                </p>
-
-                <!-- Grid dos 4 Cards Visuais (Sticky Stack Cards EXCLUSIVO no Mobile / Grid no Desktop) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mt-8 relative">
-                    
-                    <!-- Card 1: Atração Diária de Times -->
-                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[10] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
-                        <div>
-                            <div class="relative h-48 w-full overflow-hidden bg-slate-950">
-                                <img src="assets/dor_ceticismo_digital.jpg" alt="Atração Diária de Times" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#020d14] via-transparent to-transparent"></div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider leading-snug">
-                                    Atração Diária de Times
-                                </h3>
-                                <span class="text-2xl font-black text-emerald-400 block tracking-tight my-2.5">3 a 5 pedidos/dia</span>
-                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
-                                    Anúncios simples no WhatsApp trazendo diretores de times amadores de todo o Brasil sem depender do boca a boca local.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="px-5 pb-5 pt-2">
-                            <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-wider block border-t border-white/10 pt-3">
-                                ✅ Demanda Nacional Previsível
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Oferta de Kits Completos -->
-                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[20] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
-                        <div>
-                            <div class="relative h-48 w-full overflow-hidden bg-slate-950">
-                                <img src="assets/dor_peca_unica.jpg" alt="Oferta de Kits Completos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#020d14] via-transparent to-transparent"></div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider leading-snug">
-                                    Oferta de Kits Completos
-                                </h3>
-                                <span class="text-2xl font-black text-emerald-400 block tracking-tight my-2.5">R$ 3.000+ por time</span>
-                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
-                                    Transformar pedidos de camisas soltas em pacotes com calção, meião e agasalhos para triplicar o ticket médio de cada venda.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="px-5 pb-5 pt-2">
-                            <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-wider block border-t border-white/10 pt-3">
-                                ✅ Ticket Médio 3x Maior
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Produção Sem Erros & Margem Alta -->
-                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[30] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
-                        <div>
-                            <div class="relative h-48 w-full overflow-hidden bg-slate-950">
-                                <img src="assets/dor_desperdicio_fabril.jpg" alt="Produção Sem Erros e Margem Alta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#020d14] via-transparent to-transparent"></div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider leading-snug">
-                                    Produção Sem Erros & Margem
-                                </h3>
-                                <span class="text-2xl font-black text-emerald-400 block tracking-tight my-2.5">+ 100% de Margem</span>
-                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
-                                    Gabaritos profissionais e processos sem refação que eliminam o desperdício de insumos e garantem lucro real no caixa.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="px-5 pb-5 pt-2">
-                            <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-wider block border-t border-white/10 pt-3">
-                                ✅ Lucro Preservado Sem Refações
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Vendas Recorrentes & Escala -->
-                    <div class="max-lg:sticky max-lg:top-[100px] max-lg:z-[40] bg-[#020d14] border-2 border-emerald-500/40 rounded-3xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex flex-col justify-between hover:border-emerald-500 transition-all duration-300 group">
-                        <div>
-                            <div class="relative h-48 w-full overflow-hidden bg-slate-950">
-                                <img src="assets/dor_teto_regional.jpg" alt="Vendas Recorrentes e Escala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"/>
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#020d14] via-transparent to-transparent"></div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider leading-snug">
-                                    Vendas Recorrentes & Escala
-                                </h3>
-                                <span class="text-2xl font-black text-emerald-400 block tracking-tight my-2.5">Clientes Fiéis Todo Mês</span>
-                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
-                                    Times de futebol trocam de uniforme todo ano e disputam campeonatos novos. Crie uma carteira de clubes recorrentes que compram continuamente.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="px-5 pb-5 pt-2">
-                            <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-wider block border-t border-white/10 pt-3">
-                                ✅ Recorrência e Caixa Seguro
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Bloco de Reforço da Promessa 2 (Dobra Terceirização) -->
-                <div class="mt-16 max-w-[1200px] mx-auto text-left">
-
-                    <!-- Bloco Principal de Conteúdo -->
-                    <div class="bg-[#052637]/70 border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
-                        
-                        <!-- Headline Impactante Específica -->
-                        <div class="text-center sm:text-left mb-8 pb-6 border-b border-white/10">
-                            <span class="inline-block text-[10px] sm:text-xs font-black uppercase tracking-widest text-yellow-400 bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/20 mb-3">
-                                🚀 ESCALA DIGITAL & MARCA ESPORTIVA
-                            </span>
-                            <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug">
-                                Descubra no evento ao vivo como <span class="text-yellow-400">transformar sua confecção em uma Marca Esportiva Nacional</span>, atrair os maiores clubes da várzea e empresas do Brasil e multiplicar seu faturamento online.
-                            </h3>
-                        </div>
-
-                        <!-- Lista de Entregas / Informações Espaçada e Limpa -->
-                        <div class="space-y-4 sm:space-y-5 text-slate-200">
-                            
-                            <div class="flex items-start gap-3.5">
-                                <span class="w-6 h-6 rounded-full bg-green-500/20 border border-green-500/40 flex items-center justify-center text-green-400 font-extrabold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                                    <strong class="text-white">Terça, Quarta e Quinta (01, 02 e 03 de Setembro) das 19h00 às 22h00</strong> • Treinamento completo do Método Bfnine de Escala Digital e Marca Esportiva.
-                                </p>
-                            </div>
-
-                            <div class="flex items-start gap-3.5">
-                                <span class="w-6 h-6 rounded-full bg-green-500/20 border border-green-500/40 flex items-center justify-center text-green-400 font-extrabold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                                    <strong class="text-white">Conteúdo 100% Prático e Aplicável</strong> (Passo a passo das campanhas no Meta Ads ao fechamento no WhatsApp).
-                                </p>
-                            </div>
-
-                            <div class="flex items-start gap-3.5">
-                                <span class="w-6 h-6 rounded-full bg-green-500/20 border border-green-500/40 flex items-center justify-center text-green-400 font-extrabold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                                    <strong class="text-white">Transmissão Online e Ao Vivo pelo Google Meet</strong> com tira-dúvidas em tempo real.
-                                </p>
-                            </div>
-
-                            <div class="flex items-start gap-3.5 pt-4 border-t border-white/10">
-                                <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-extrabold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                                    <strong class="text-emerald-400 font-bold">Garantia de Insatisfação:</strong> Comprou o ingresso, não conseguiu assistir ao vivo ou não gostou do conteúdo do workshop? Você pode solicitar <strong class="text-white">100% do seu reembolso em até 48 horas após o encerramento</strong>. O risco é todo meu.
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SEÇÃO 4: CRONOGRAMA OFICIAL COM ROLAGEM DE DESTAQUE SEQUENCIAL (SÁBADO ➔ DOMINGO) -->
-<section id="cronograma-3d-section" class="w-full relative z-20 border-t border-b border-white/5 bg-[#020d14] py-16 lg:py-24">
-            
-            <!-- Glows de Fundo Atmosféricos -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-
-            <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 relative z-20">
-                
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
-                    
-                    <!-- Coluna Esquerda Sticky (Painel Fixo Durante o Scroll) -->
-                    <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
-                        
-                        <div>
-                            <span class="text-xs font-black text-sky-400 uppercase tracking-widest block mb-2 border-b border-sky-500/30 pb-2 inline-block">
-                                01, 02 E 03/SET | DAS 19H00 ÀS 22H00 | NO GOOGLE MEET
-                            </span>
-                            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-normal mt-2">
-                                Cronograma
-                            </h2>
-                            <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
-                                Agenda oficial das 3 noites do Workshop da Marca Esportiva (das 19h00 às 22h00).
-                            </p>
-                        </div>
-
-                        <!-- Chaveador de Navegação dos Dias (Terça / Quarta / Quinta) - Cor de Fundo Amarela Vibrante -->
-                        <div class="flex items-center gap-1.5 p-1.5 bg-[#051a26] rounded-2xl border-2 border-yellow-400 shadow-[0_0_25px_rgba(250,204,21,0.3)] max-w-md">
-                            <button id="btn-crono-noite1" onclick="scrollToCronoDay(1)" class="flex-1 py-2.5 px-2 rounded-xl font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 bg-yellow-400 text-slate-950 shadow-[0_0_20px_rgba(250,204,21,0.6)] border border-yellow-300">
-                                📅 1ª Noite (01/09)
-                            </button>
-                            <button id="btn-crono-noite2" onclick="scrollToCronoDay(2)" class="flex-1 py-2.5 px-2 rounded-xl font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white bg-transparent">
-                                📅 2ª Noite (02/09)
-                            </button>
-                            <button id="btn-crono-noite3" onclick="scrollToCronoDay(3)" class="flex-1 py-2.5 px-2 rounded-xl font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white bg-transparent">
-                                📅 3ª Noite (03/09)
-                            </button>
-                        </div>
-
-                        <!-- Status do Tópico Ativo e Barra de Progresso em Tempo Real - Fundo Amarelo no Indicador -->
-                        <div class="p-4.5 rounded-2xl bg-[#041622] border-2 border-yellow-400/50 text-xs space-y-3 shadow-[0_0_25px_rgba(250,204,21,0.2)]">
-                            <div class="flex items-center justify-between">
-                                <span class="font-black bg-yellow-400 text-slate-950 px-3 py-1 rounded-lg uppercase tracking-wider text-[11px] shadow-md border border-yellow-300" id="crono-day-indicator">1ª NOITE: TERÇA (01/09)</span>
-                                <span class="text-[11px] text-yellow-300 font-black bg-yellow-500/20 px-2.5 py-1 rounded-md border border-yellow-400/40" id="crono-step-counter">Tópico 1 de 4</span>
-                            </div>
-                            <div class="w-full bg-slate-950 rounded-full h-2.5 overflow-hidden border border-yellow-400/40 p-0.5">
-                                <div id="crono-progress-bar" class="bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-300 h-full rounded-full transition-all duration-300" style="width: 25%;"></div>
-                            </div>
-                        </div>
-
-                        <!-- Nota do Rodapé da Referência Enviada -->
-                        <p class="text-[11px] text-slate-400/80 italic border-t border-white/10 pt-4 leading-relaxed">
-                            *Considere encerrar mais tarde, caso os participantes peçam para nos aprofundarmos em algum ponto. Porém, o conteúdo combinado será entregue dentro do horário programado (das 19h00 às 22h00).
-                        </p>
-
-                        <!-- CTA Direto (Âncora para a Seção de Preço) -->
-                        <div class="pt-1">
-                            <a href="#comprar" class="inline-block font-bold text-sky-400 hover:text-sky-300 transition-colors">
-                                Quero Meu Ingresso ⚡
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <!-- Coluna Direita: Fluxo Contínuo da Agenda (3 Noites - das 19h00 às 22h00) -->
-                    <div class="lg:col-span-7 space-y-10">
-                        
-                        <!-- AGENDA NOITE 01: TERÇA-FEIRA (01/09) -->
-                        <div id="crono-block-noite1" class="space-y-4">
-                            
-                            <!-- Header Banner Noite 1 -->
-                            <div id="noite1-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#020d14]/95 backdrop-blur-xl border-2 border-amber-400 rounded-3xl py-6 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(251,191,36,0.3)] transition-all">
-                                <div class="flex items-center gap-4 my-auto">
-                                    <span class="w-4 h-4 rounded-full bg-amber-400 animate-ping flex-shrink-0"></span>
-                                    <div class="flex flex-col justify-center text-center sm:text-left">
-                                        <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 block mb-0.5 text-center sm:text-left">1ª NOITE DE WORKSHOP</span>
-                                        <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider leading-tight text-center sm:text-left">
-                                            📅 TERÇA-FEIRA
-                                            <span class="text-amber-300 text-sm sm:text-base font-bold block mt-0.5 text-center sm:text-left">(01 DE SETEMBRO)</span>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div class="my-auto text-center w-full sm:w-auto flex justify-center">
-                                    <div class="inline-flex flex-col items-center justify-center text-center text-xs sm:text-sm font-black text-amber-300 bg-amber-500/15 px-5 py-2.5 rounded-xl border border-amber-400/40 leading-snug">
-                                        <span>19h00 às 22h00</span>
-                                        <span class="text-[11px] font-extrabold text-amber-400/90 block mt-0.5">(Ao Vivo no Meet)</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 1 -->
-                            <div id="noite1-item-0" onclick="activateCronoItem(1, 0)" class="crono-row cursor-pointer rounded-2xl border border-sky-400 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-[0_0_25px_rgba(56,189,248,0.3)]">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400 shadow-[0_0_8px_#38bdf8]"></span>
-                                        19H00 às 19H30
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/10 text-sky-300 px-3 py-1 rounded-full border border-sky-500/20 w-max">Visão Geral & Oportunidade</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    🚀 O Mercado Multi-Milionário de Futebol Amador no Brasil
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                    Como se posicionar no mercado altamente lucrativo da várzea e faturar alto vendendo fardamentos diretamente para os clubes da sua região.
-                                </p>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div id="noite1-item-1" onclick="activateCronoItem(1, 1)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                                        19H30 às 20H15
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Design Sem Barreiras & IA</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    🎨 Criando Projetos de Uniforme 3D com Softwares Gratuitos e IA
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                    Desenvolvimento prático na tela utilizando inteligência artificial e ferramentas sem precisar saber desenhar ou ter experiência prévia.
-                                </p>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div id="noite1-item-2" onclick="activateCronoItem(1, 2)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                                        20H15 às 21H00
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Apresentação & Loja Online</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    🎬 Apresentação 3D Animada para o Cliente & E-commerce da Marca
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                    Envie simulações 3D animadas ultra-realistas que encantam os diretores e coloque sua loja virtual no ar para receber pedidos automaticamente.
-                                </p>
-                            </div>
-
-                            <!-- Item 4 -->
-                            <div id="noite1-item-3" onclick="activateCronoItem(1, 3)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                                        21H00 às 22H00
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Lucro Triplicado & Tira-Dúvidas</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    💰 Estratégia para Triplicar Faturamento & Mentoria do 1º Dia
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                    Como agregar valor vendendo Agasalhos Esportivos e Camisas de Torcida junto com o kit, mais tira-dúvidas ao vivo no Meet.
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <!-- AGENDA NOITE 02: QUARTA-FEIRA (02/09) -->
-                        <div id="crono-block-noite2" class="space-y-4 pt-8 border-t border-white/10">
-                            
-                            <!-- Header Banner Noite 2 -->
-                            <div id="noite2-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#020d14]/95 backdrop-blur-xl border-2 border-emerald-400 rounded-3xl py-6 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(52,211,153,0.3)] transition-all">
-                                <div class="flex items-center gap-4 my-auto">
-                                    <span class="w-4 h-4 rounded-full bg-emerald-400 animate-ping flex-shrink-0"></span>
-                                    <div class="flex flex-col justify-center text-center sm:text-left">
-                                        <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400 block mb-0.5 text-center sm:text-left">2ª NOITE DE WORKSHOP</span>
-                                        <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider leading-tight text-center sm:text-left">
-                                            📅 QUARTA-FEIRA
-                                            <span class="text-emerald-300 text-sm sm:text-base font-bold block mt-0.5 text-center sm:text-left">(02 DE SETEMBRO)</span>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div class="my-auto text-center w-full sm:w-auto flex justify-center">
-                                    <div class="inline-flex flex-col items-center justify-center text-center text-xs sm:text-sm font-black text-emerald-300 bg-emerald-500/15 px-5 py-2.5 rounded-xl border border-emerald-400/40 leading-snug">
-                                        <span>19h00 às 22h00</span>
-                                        <span class="text-[11px] font-extrabold text-emerald-400/90 block mt-0.5">(Ao Vivo no Meet)</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 1 -->
-                            <div id="noite2-item-0" onclick="activateCronoItem(2, 0)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                                        19H00 às 19H30
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Fechamento de Arquivos</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    📐 Modelando e Preparando o Uniforme sem Erros de Produção
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                    Passo a passo técnico de montagem dos moldes 2D, perfil de cor (RGB vs CMYK) e fechamento de arquivos para prensa.
-                                </p>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div id="noite2-item-1" onclick="activateCronoItem(2, 1)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                                        19H30 às 20H30
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Produção de Fábrica</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    🏭 Guia Completo de Impressão, Prensa, Costura e Tecidos
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                    Tecidos Dry Fit, papéis, tintas, prensas, máquinas de costura e como evitar sombras, ressublimação e desperdício de insumos.
-                                </p>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div id="noite2-item-2" onclick="activateCronoItem(2, 2)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                                        20H30 às 21H30
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Fábrica Sem Máquina</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    🤝 Terceirização Fulfillment & Rede de Fornecedores Homologados
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                    Como montar sua marca esportiva terceirizando 100% da produção com parceiros de alta qualidade sem investir em máquinas.
-                                </p>
-                            </div>
-
-                            <!-- Item 4 -->
-                            <div id="noite2-item-3" onclick="activateCronoItem(2, 3)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                                        21H30 às 22H00
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Mentoria Técnica</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    💬 Mentoria e Tira-Dúvidas Técnico de Produção Ao Vivo
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                    Sessão interativa no Google Meet para sanar dúvidas operacionais de fábrica, moldes e estamparia diretamente com o especialista.
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <!-- AGENDA NOITE 03: QUINTA-FEIRA (03/09) -->
-                        <div id="crono-block-noite3" class="space-y-4 pt-8 border-t border-white/10">
-                            
-                            <!-- Header Banner Noite 3 -->
-                            <div id="noite3-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#020d14]/95 backdrop-blur-xl border-2 border-cyan-400 rounded-3xl py-6 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(34,211,238,0.3)] transition-all">
-                                <div class="flex items-center gap-4 my-auto">
-                                    <span class="w-4 h-4 rounded-full bg-cyan-400 animate-ping flex-shrink-0"></span>
-                                    <div class="flex flex-col justify-center text-center sm:text-left">
-                                        <span class="text-[10px] font-black uppercase tracking-widest text-cyan-400 block mb-0.5 text-center sm:text-left">3ª NOITE DE WORKSHOP</span>
-                                        <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider leading-tight text-center sm:text-left">
-                                            📅 QUINTA-FEIRA
-                                            <span class="text-cyan-300 text-sm sm:text-base font-bold block mt-0.5 text-center sm:text-left">(03 DE SETEMBRO)</span>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div class="my-auto text-center w-full sm:w-auto flex justify-center">
-                                    <div class="inline-flex flex-col items-center justify-center text-center text-xs sm:text-sm font-black text-cyan-300 bg-cyan-500/15 px-5 py-2.5 rounded-xl border border-cyan-400/40 leading-snug">
-                                        <span>19h00 às 22h00</span>
-                                        <span class="text-[11px] font-extrabold text-cyan-400/90 block mt-0.5">(Ao Vivo no Meet)</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 1 -->
-                            <div id="noite3-item-0" onclick="activateCronoItem(3, 0)" class="crono-row cursor-pointer rounded-2xl border border-sky-500/40 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-lg hover:border-sky-400">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                                        19H00 às 19H30
-                                    </span>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full border border-sky-500/30 w-max">Anúncios Meta Ads</span>
-                                </div>
-                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    🎯 Tráfego Pago no Facebook & Instagram para Vender Uniformes
-                                </h4>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
+        
 
 
 
@@ -1327,7 +1389,7 @@
                     <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400">
                         ⚡ SUA TRANSFORMAÇÃO NO EVENTO
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight leading-tight">
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-4 tracking-tight leading-tight">
                         ANTES X DEPOIS DO WORKSHOP DA MARCA ESPORTIVA
                     </h2>
                     <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
@@ -1421,366 +1483,11 @@
 
 
 
-        <!-- SEÇÃO 6: DEPOIMENTOS & PROVAS SOCIAIS DE ALUNOS (Sticky Wrapper Top-0 Unificado + Ambientação Vestiário Futebol HD) -->
-        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5" style="height: 190vh;">
-            
-            <!-- Imagem de Fundo Ambiental do Vestiário Profissional EA FC -->
-            <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_vestiario_hd.webp');"></div>
-
-            <div id="sticky-dep-wrapper" class="sticky top-0 min-h-screen lg:h-screen flex flex-col justify-between w-full bg-[#051f2d]/90 py-2 sm:py-4 z-[20]">
-                
-                <!-- Header Fixo no Topo do Wrapper Sticky -->
-                <div class="w-full text-center max-w-3xl mx-auto px-4 flex-shrink-0 pt-1 sm:pt-2">
-                    <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 sm:px-3.5 sm:py-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-yellow-400">
-                        💬 RESULTADOS COMPROVADOS DE ALUNOS
-                    </span>
-                    <h2 class="text-base sm:text-2xl font-extrabold text-white tracking-tight mt-1 sm:mt-1.5 leading-tight">
-                        Quem Aprendeu o Método Bfnine e Vive de Uniformes de Futebol
-                    </h2>
-                    <div class="mt-1 sm:mt-1.5 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-                </div>
-
-                <!-- Conteúdo dos Carrosséis (Texto em Loop + Prints no Scroll) -->
-                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center flex-grow py-2 overflow-hidden">
-
-                    <!-- FILEIRA 1: Depoimentos em Texto (Loop Infinito Contínuo Marquee) -->
-                    <div id="dep-text-container" class="overflow-hidden w-full relative scrollbar-none mb-5 flex-shrink-0">
-                        <div id="dep-text-track" class="animate-marquee-infinite gap-5">
-                            
-                            <!-- Bloco Original (7 Depoimentos do Público 3) -->
-                            <div class="flex gap-5 flex-shrink-0">
-                                <!-- Depoimento 1 -->
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-yellow-500/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
-                                                <img src="assets/res_aluno_1.webp" alt="Lucas Fonseca" class="w-full h-full object-cover"/>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Lucas Fonseca</h4>
-                                                <p class="text-[10px] text-yellow-400 font-semibold">Fonseca Confecções - SC</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Minha confecção vivia brigando por centavos vendendo camiseta básica. Quando apliquei o Método Bfnine, padronizei os gabaritos e criei nossa linha esportiva própria. Hoje cobramos R$ 95 por uniforme e a margem limpa da fábrica subiu para mais de R$ 45 por peça!"
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Depoimento 2 -->
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-cyan-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-black text-sm flex-shrink-0 overflow-hidden">
-                                                <img src="assets/res_aluno_2.webp" alt="Gabriela Medeiros" class="w-full h-full object-cover"/>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Gabriela Medeiros</h4>
-                                                <p class="text-[10px] text-cyan-400 font-semibold">Gabi Sublimação - SP</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "O maior gargalo na minha estamparia era o desperdício de papel e tecido por erro de encaixe e gola torta. Com as fichas técnicas e moldes 3D ensinados no workshop, eliminamos o retrabalho no chão de fábrica e aumentamos nossa capacidade em 40%."
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Depoimento 3 -->
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-purple-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-black text-sm flex-shrink-0 uppercase">
-                                                FS
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Felipe Souza</h4>
-                                                <p class="text-[10px] text-purple-400 font-semibold">Souza Sportswear - RJ</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Nossas máquinas de costura e prensa ficavam paradas quase meio mês por falta de pedidos recorrentes. O workshop me ensinou a vender direto para diretores de clubes e empresas. Hoje a fábrica roda a plena capacidade e com margem alta!"
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Depoimento 4 -->
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-sky-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-black text-sm flex-shrink-0 uppercase">
-                                                RM
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Rodrigo Mendes</h4>
-                                                <p class="text-[10px] text-sky-400 font-semibold">Mendes Confecções - MG</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Eu tinha um maquinário bom na oficina mas não sabia como transformar aquilo em uma marca forte. O passo a passo de posicionamento e mockups 3D foi fantástico: fechamos um fardamento completo de R$ 8.500 para uma liga regional no primeiro mês!"
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Depoimento 5 -->
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-emerald-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-sm flex-shrink-0 uppercase">
-                                                MO
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Mateus Oliveira</h4>
-                                                <p class="text-[10px] text-emerald-400 font-semibold">Oliveira Têxtil - PR</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Quando vinha pico de demanda na confecção, a gente se desesperava com atrasos. Com a rede de terceirização e padronização do Método Bfnine, agora transbordamos o excedente de costura com total controle de qualidade. Não perdemos mais nenhum cliente!"
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Depoimento 6 -->
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-amber-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-black text-sm flex-shrink-0 uppercase">
-                                                RR
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Renan Ramos</h4>
-                                                <p class="text-[10px] text-amber-400 font-semibold">RR Fábrica de Uniformes - SP</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Trabalhava 14 horas por dia na oficina apagando incêndio e a conta não fechava no fim do mês. Aprendi a estruturar a precificação e criar kits premium de futebol. Dobramos o faturamento da fábrica mantendo o mesmo número de costureiras."
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Depoimento 7 -->
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-green-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0 uppercase">
-                                                DC
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Diego Castro</h4>
-                                                <p class="text-[10px] text-green-400 font-semibold">Castro Confecções - BA</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Antes a gente sofria com golas manchadas na calandra e tom de cor desalinhado. A padronização de arquivos e o processo fabril do método Bfnine deram padrão profissional de Série A aos nossos fardamentos. Os diretores de times viraram clientes fiéis!"
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Bloco Duplicado para Loop Infinito Contínuo (100% Sem Emenda) -->
-                            <div class="flex gap-5 flex-shrink-0" aria-hidden="true">
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-yellow-500/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
-                                                <img src="assets/res_aluno_1.webp" alt="Lucas Fonseca" class="w-full h-full object-cover"/>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Lucas Fonseca</h4>
-                                                <p class="text-[10px] text-yellow-400 font-semibold">Fonseca Confecções - SC</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Minha confecção vivia brigando por centavos vendendo camiseta básica. Quando apliquei o Método Bfnine, padronizei os gabaritos e criei nossa linha esportiva própria. Hoje cobramos R$ 95 por uniforme e a margem limpa da fábrica subiu para mais de R$ 45 por peça!"
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-cyan-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-black text-sm flex-shrink-0 overflow-hidden">
-                                                <img src="assets/res_aluno_2.webp" alt="Gabriela Medeiros" class="w-full h-full object-cover"/>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Gabriela Medeiros</h4>
-                                                <p class="text-[10px] text-cyan-400 font-semibold">Gabi Sublimação - SP</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "O maior gargalo na minha estamparia era o desperdício de papel e tecido por erro de encaixe e gola torta. Com as fichas técnicas e moldes 3D ensinados no workshop, eliminamos o retrabalho no chão de fábrica e aumentamos nossa capacidade em 40%."
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-purple-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-black text-sm flex-shrink-0 uppercase">
-                                                FS
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Felipe Souza</h4>
-                                                <p class="text-[10px] text-purple-400 font-semibold">Souza Sportswear - RJ</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Nossas máquinas de costura e prensa ficavam paradas quase meio mês por falta de pedidos recorrentes. O workshop me ensinou a vender direto para diretores de clubes e empresas. Hoje a fábrica roda a plena capacidade e com margem alta!"
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-sky-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-black text-sm flex-shrink-0 uppercase">
-                                                RM
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Rodrigo Mendes</h4>
-                                                <p class="text-[10px] text-sky-400 font-semibold">Mendes Confecções - MG</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Eu tinha um maquinário bom na oficina mas não sabia como transformar aquilo em uma marca forte. O passo a passo de posicionamento e mockups 3D foi fantástico: fechamos um fardamento completo de R$ 8.500 para uma liga regional no primeiro mês!"
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-emerald-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-sm flex-shrink-0 uppercase">
-                                                MO
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Mateus Oliveira</h4>
-                                                <p class="text-[10px] text-emerald-400 font-semibold">Oliveira Têxtil - PR</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Quando vinha pico de demanda na confecção, a gente se desesperava com atrasos. Com a rede de terceirização e padronização do Método Bfnine, agora transbordamos o excedente de costura com total controle de qualidade. Não perdemos mais nenhum cliente!"
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-amber-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-black text-sm flex-shrink-0 uppercase">
-                                                RR
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Renan Ramos</h4>
-                                                <p class="text-[10px] text-amber-400 font-semibold">RR Fábrica de Uniformes - SP</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Trabalhava 14 horas por dia na oficina apagando incêndio e a conta não fechava no fim do mês. Aprendi a estruturar a precificação e criar kits premium de futebol. Dobramos o faturamento da fábrica mantendo o mesmo número de costureiras."
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="flex-shrink-0 w-[290px] sm:w-[330px] rounded-3xl border border-green-400/20 bg-[#052637]/90 backdrop-blur p-4 sm:p-5 flex flex-col justify-between shadow-xl">
-                                    <div>
-                                        <div class="flex items-center gap-3 mb-2.5 pb-2.5 border-b border-white/10">
-                                            <div class="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0 uppercase">
-                                                DC
-                                            </div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Diego Castro</h4>
-                                                <p class="text-[10px] text-green-400 font-semibold">Castro Confecções - BA</p>
-                                            </div>
-                                        </div>
-                                        <p class="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium">
-                                            "Antes a gente sofria com golas manchadas na calandra e tom de cor desalinhado. A padronização de arquivos e o processo fabril do método Bfnine deram padrão profissional de Série A aos nossos fardamentos. Os diretores de times viraram clientes fiéis!"
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                <!-- FILEIRA 2: Prints de Resultados dos Alunos da Pasta depoimentos (Deslizam para a direita no scroll + Clique para ampliar HD) -->
-                <div id="dep-img-container" class="overflow-hidden w-full relative scrollbar-none flex-shrink-0 py-4">
-                    <div id="dep-img-track" class="flex gap-5 w-max">
-                        
-                        <!-- Image 1 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_1.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-yellow-500/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_1.png" alt="Comprovante de Resultado Aluno Bfnine 1" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-yellow-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 2 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_2.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-cyan-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_2.png" alt="Comprovante de Resultado Aluno Bfnine 2" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-cyan-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 3 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_3.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-purple-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_3.png" alt="Comprovante de Resultado Aluno Bfnine 3" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-purple-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 4 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_4.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-sky-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_4.png" alt="Comprovante de Resultado Aluno Bfnine 4" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-sky-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 5 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_5.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-emerald-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_5.png" alt="Comprovante de Resultado Aluno Bfnine 5" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-emerald-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 6 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_6.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-amber-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_6.png" alt="Comprovante de Resultado Aluno Bfnine 6" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-amber-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 7 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_7.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-rose-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_7.png" alt="Comprovante de Resultado Aluno Bfnine 7" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-rose-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 8 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_8.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-teal-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_8.png" alt="Comprovante de Resultado Aluno Bfnine 8" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-teal-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 9 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_9.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-indigo-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_9.png" alt="Comprovante de Resultado Aluno Bfnine 9" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-indigo-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 10 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_10.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-lime-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_10.png" alt="Comprovante de Resultado Aluno Bfnine 10" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-lime-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                        <!-- Image 11 -->
-                        <div onclick="openImageModal('depoimentos/depoimento_aluno_11.png')" class="flex-shrink-0 w-[84vw] max-w-[320px] sm:w-[280px] lg:w-[300px] h-[380px] sm:h-[320px] lg:h-[340px] rounded-2xl border-2 border-yellow-400/40 bg-slate-950 p-2 shadow-2xl overflow-hidden group cursor-pointer relative transition-transform hover:scale-[1.02]">
-                            <img src="depoimentos/depoimento_aluno_11.png" alt="Comprovante de Resultado Aluno Bfnine 11" class="w-full h-full object-contain rounded-xl bg-slate-950 transition-transform duration-500 group-hover:scale-105"/>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/90 border border-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-yellow-300 flex items-center gap-1 shadow-lg pointer-events-none">🔍 Clique para ampliar</div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            </div>
-        </section>
+        
 
         <!-- SEÇÃO 8: AUTORIDADE (Tela Cheia com Ambientação Futebol Estádio EA FC) -->
 
-        <!-- SEÇÃO 9: OFERTA + CTA FINAL (Layout Estilo Ingresso Premium Inspirado no Print, Preservando Ancoragem R$ 197 -> R$ 19) -->
+        <!-- SEÇÃO 9: OFERTA + CTA FINAL (Layout Estilo Ingresso Premium Inspirado no Print, Preservando Ancoragem R$ 197 -> R$ 24,90) -->
         <section id="comprar" data-pixel-tag="ofer_ingresso" class="ofer_ingresso w-full bg-[#020d14] border-t border-white/5 relative py-16 sm:py-24">
             <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
                 
@@ -1875,7 +1582,7 @@
                                     De <span class="line-through text-red-400">R$ 197,00</span> por apenas:
                                 </p>
                                 <div class="flex items-baseline gap-3 mt-1 ofer_ingresso">
-                                    <span class="text-4xl sm:text-6xl font-black text-white tracking-tight">R$ 19,00</span>
+                                    <span class="text-4xl sm:text-6xl font-black text-white tracking-tight">R$ 24,90</span>
                                     <span class="text-xs font-extrabold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
                                         Lote 1 Garantido
                                     </span>
@@ -1897,7 +1604,7 @@
 
                             <!-- Botão CTA Principal Super Destacado com Respiro Mobile -->
                             <div class="py-6 sm:py-8 my-2 border-y border-white/10">
-                                <a href="https://pxa.bfninecamisetas.com.br/lt/ws" target="_blank" class="inline-flex items-center justify-center gap-3 w-full rounded-2xl bg-green-600 hover:bg-green-500 text-white font-black px-8 py-5 text-lg sm:text-xl uppercase tracking-wider shadow-[0_4px_30px_rgba(34,197,94,0.5)] transition-all duration-300 btn-shimmer group" style="border-radius: 16px;" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 19.00, currency: 'BRL'}); }">
+                                <a href="https://pxa.bfninecamisetas.com.br/lt/ws" target="_blank" class="inline-flex items-center justify-center gap-3 w-full rounded-2xl bg-green-600 hover:bg-green-500 text-white font-black px-8 py-5 text-lg sm:text-xl uppercase tracking-wider shadow-[0_4px_30px_rgba(34,197,94,0.5)] transition-all duration-300 btn-shimmer group" style="border-radius: 16px;" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 24.90, currency: 'BRL'}); }">
                                     <span class="drop-shadow-sm">GARANTIR MEU INGRESSO AO VIVO</span>
                                     <span class="text-xl group-hover:translate-x-1.5 transition-transform">➔</span>
                                 </a>
@@ -1905,11 +1612,11 @@
                                 <!-- Barra de Escassez / Progresso com Espaçamento Adequado -->
                                 <div class="mt-6 max-w-md mx-auto">
                                     <div class="flex justify-between items-center text-[11px] sm:text-xs text-slate-200 font-extrabold mb-2 uppercase tracking-wider">
-                                        <span class="flex items-center gap-1.5"><span class="animate-pulse text-amber-400">🔥</span> Ingressos LOTE 1 (R$ 19) quase esgotados</span>
-                                        <span class="text-emerald-400 font-black bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/30">97% VENDIDOS</span>
+                                        <span class="flex items-center gap-1.5"><span class="animate-pulse text-amber-400">🔥</span> Ingressos LOTE 1 (R$ 24,90) quase esgotados</span>
+                                        <span class="text-emerald-400 font-black bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/30">77% VENDIDOS</span>
                                     </div>
                                     <div class="w-full bg-slate-950 rounded-full h-3 border border-emerald-500/40 overflow-hidden p-0.5 shadow-inner">
-                                        <div class="bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 h-full rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" style="width: 97%;"></div>
+                                        <div class="bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 h-full rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" style="width: 77%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1918,179 +1625,7 @@
 
                     </div>
 
-                    <!-- SEÇÃO DE ENTREGÁVEIS & QUEBRA DE OBJEÇÕES PARA O PÚBLICO 3 (DONOS DE CONFECÇÃO & OFICINAS) -->
-                    <div class="mt-12 pt-10 border-t border-white/15">
-                        
-                        <!-- Cabeçalho Persuasivo com Ancoragem -->
-                        <div class="text-center max-w-3xl mx-auto mb-8">
-                            <span class="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-emerald-400 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-                                🏭 TUDO O QUE VOCÊ RECEBE NO SEU INGRESSO DE ENTRADA
-                            </span>
-                            <h4 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                                Tudo o que você precisa para padronizar sua fábrica, <span class="text-sky-400">eliminar retrabalho</span> e <span class="text-sky-400">faturar alto com sua marca esportiva</span>
-                            </h4>
-                            <p class="text-xs sm:text-sm text-slate-300 mt-2 font-medium">
-                                Cada entregável do Workshop foi desenhado para acabar com o desperdício de tecido, organizar o chão de fábrica e multiplicar a margem da sua confecção:
-                            </p>
-                        </div>
-
-                        <!-- Grid de 8 Entregáveis com Foco Fabril -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-                            
-                            <!-- Card 1: Padronização Fabril -->
-                            <div class="bg-[#031b28]/90 p-4 rounded-2xl border border-sky-500/20 hover:border-sky-400/50 transition-all flex flex-col justify-between shadow-lg group">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="w-7 h-7 rounded-xl bg-sky-500/20 border border-sky-500/40 text-sky-300 font-black text-xs flex items-center justify-center">01</span>
-                                        <h5 class="text-sm font-black text-white">Padronização Fabril & Gabaritos</h5>
-                                    </div>
-                                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                                        Aprenda a gabaritar seus arquivos, moldes e fichas técnicas para acabar com golas tortas, manchas na calandra e desperdício de papel e tecido.
-                                    </p>
-                                </div>
-                                <div class="mt-3 pt-2 border-t border-white/5 text-[11px] font-bold text-sky-400 flex items-center gap-1">
-                                    <span>✓ Fim do retrabalho e perdas no chão de fábrica</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 2: Mockups 3D -->
-                            <div class="bg-[#031b28]/90 p-4 rounded-2xl border border-emerald-500/20 hover:border-emerald-400/50 transition-all flex flex-col justify-between shadow-lg group">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="w-7 h-7 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-black text-xs flex items-center justify-center">02</span>
-                                        <h5 class="text-sm font-black text-white">Mockups 3D & IAs em 30s</h5>
-                                    </div>
-                                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                                        Apresente uniformes de futebol em 3D realista para diretores de clubes e empresas antes mesmo de gastar 1 cm de tecido ou papel.
-                                    </p>
-                                </div>
-                                <div class="mt-3 pt-2 border-t border-white/5 text-[11px] font-bold text-emerald-400 flex items-center gap-1">
-                                    <span>✓ Apresentação de alto valor para clientes</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 3: Fábrica a Plena Capacidade -->
-                            <div class="bg-[#031b28]/90 p-4 rounded-2xl border border-amber-500/20 hover:border-amber-400/50 transition-all flex flex-col justify-between shadow-lg group">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="w-7 h-7 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 font-black text-xs flex items-center justify-center">03</span>
-                                        <h5 class="text-sm font-black text-white">Fábrica a Plena Capacidade</h5>
-                                    </div>
-                                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                                        Acabe com dias de máquinas e costureiras paradas. Estruture a venda direta para clubes da região e mantenha sua oficina rodando com alta margem.
-                                    </p>
-                                </div>
-                                <div class="mt-3 pt-2 border-t border-white/5 text-[11px] font-bold text-amber-400 flex items-center gap-1">
-                                    <span>✓ Vendas recorrentes com margem de +R$ 45/peça</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 4: Rede de Transbordo -->
-                            <div class="bg-[#031b28]/90 p-4 rounded-2xl border border-purple-500/20 hover:border-purple-400/50 transition-all flex flex-col justify-between shadow-lg group">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="w-7 h-7 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-300 font-black text-xs flex items-center justify-center">04</span>
-                                        <h5 class="text-sm font-black text-white">Rede de Transbordo Bfnine</h5>
-                                    </div>
-                                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                                        Nos picos de demanda da confecção, terceirize o excesso de costura e sublimação na rede homologada Bfnine sem perder prazo nem padrão de qualidade.
-                                    </p>
-                                </div>
-                                <div class="mt-3 pt-2 border-t border-white/5 text-[11px] font-bold text-purple-400 flex items-center gap-1">
-                                    <span>✓ Capacidade fabril expansível sem limite</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 5: Script de Vendas de Várzea -->
-                            <div class="bg-[#031b28]/90 p-4 rounded-2xl border border-rose-500/20 hover:border-rose-400/50 transition-all flex flex-col justify-between shadow-lg group">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="w-7 h-7 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 font-black text-xs flex items-center justify-center">05</span>
-                                        <h5 class="text-sm font-black text-white">Script de Vendas para Clubes</h5>
-                                    </div>
-                                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                                        Roteiros de abordagem direta para diretores de futebol amador, ligas e escolinhas que encomendam dezenas de fardamentos todos os meses.
-                                    </p>
-                                </div>
-                                <div class="mt-3 pt-2 border-t border-white/5 text-[11px] font-bold text-rose-400 flex items-center gap-1">
-                                    <span>✓ Copie e cole nossas abordagens prontas</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 6: Mentoria Ao Vivo -->
-                            <div class="bg-[#031b28]/90 p-4 rounded-2xl border border-yellow-500/20 hover:border-yellow-400/50 transition-all flex flex-col justify-between shadow-lg group">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="w-7 h-7 rounded-xl bg-yellow-500/20 border border-yellow-500/40 text-yellow-300 font-black text-xs flex items-center justify-center">06</span>
-                                        <h5 class="text-sm font-black text-white">16h de Mentoria Ao Vivo</h5>
-                                    </div>
-                                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                                        O Flávio Bfnine estará ao vivo no Google Meet tirando dúvidas sobre fechamento de arquivos, precificação fabril e gestão de linha esportiva.
-                                    </p>
-                                </div>
-                                <div class="mt-3 pt-2 border-t border-white/5 text-[11px] font-bold text-yellow-400 flex items-center gap-1">
-                                    <span>✓ Atendimento direto com o especialista</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 7: Anúncios no Meta/Google -->
-                            <div class="bg-[#031b28]/90 p-4 rounded-2xl border border-cyan-500/20 hover:border-cyan-400/50 transition-all flex flex-col justify-between shadow-lg group">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="w-7 h-7 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-black text-xs flex items-center justify-center">07</span>
-                                        <h5 class="text-sm font-black text-white">Anúncios Locais para Confecção</h5>
-                                    </div>
-                                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                                        Aprenda a investir R$ 5 por dia em anúncios para atrair diretores de times da sua cidade pedindo orçamentos diariamente no seu WhatsApp.
-                                    </p>
-                                </div>
-                                <div class="mt-3 pt-2 border-t border-white/5 text-[11px] font-bold text-cyan-400 flex items-center gap-1">
-                                    <span>✓ Clientes locais no seu WhatsApp diariamente</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 8: Marca Própria de Valor -->
-                            <div class="bg-[#031b28]/90 p-4 rounded-2xl border border-teal-500/20 hover:border-teal-400/50 transition-all flex flex-col justify-between shadow-lg group">
-                                <div>
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="w-7 h-7 rounded-xl bg-teal-500/20 border border-teal-500/40 text-teal-300 font-black text-xs flex items-center justify-center">08</span>
-                                        <h5 class="text-sm font-black text-white">Sua Marca Esportiva de Valor</h5>
-                                    </div>
-                                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                                        Deixe de ser uma confecção de camisetas genéricas e crie sua própria marca esportiva de alto padrão, cobrando R$ 95+ por uniforme.
-                                    </p>
-                                </div>
-                                <div class="mt-3 pt-2 border-t border-white/5 text-[11px] font-bold text-teal-400 flex items-center gap-1">
-                                    <span>✓ Valorização da sua fábrica e marca própria</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- BANNER DE GATILHO MENTAL: CÁLCULO DE ROI RÁPIDO & ANCORAGEM BRUTAL -->
-                        <div class="mt-8 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-950/80 via-[#052637] to-emerald-950/80 border-2 border-emerald-500/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-                            <div class="space-y-1 max-w-2xl">
-                                <span class="text-[10px] font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/30">
-                                    💡 MATEMÁTICA SIMPLES DE RETORNO (ROI)
-                                </span>
-                                <h5 class="text-lg sm:text-xl font-black text-white tracking-tight mt-2">
-                                    1 Único pedido de uniforme já paga este investimento mais de 150 vezes!
-                                </h5>
-                                <p class="text-xs text-slate-200 leading-relaxed">
-                                    Faça as contas: ao fechar 1 pedido para um time de várzea de 25 jogadores (25 kits x R$ 120 = <strong class="text-emerald-300">R$ 3.000,00 de faturamento</strong>), você recupera o valor deste ingresso de R$ 19,00 instantaneamente já no primeiro dia!
-                                </p>
-                            </div>
-                            <div class="flex-shrink-0 w-full md:w-auto">
-                                <a href="#comprar" class="inline-flex items-center gap-2 font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
-                                    <span>Garantir Meu Ingresso por R$ 19,00</span>
-                                    <span>➔</span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                <!-- BLOCO DE QUEBRA DE OBJEÇÃO: POR QUE TÃO BARATO? (Integrado com a Seção de Preço) -->
+                    <!-- BLOCO DE QUEBRA DE OBJEÇÃO: POR QUE TÃO BARATO? (Integrado com a Seção de Preço) -->
                 <div class="mt-12 w-full rounded-[32px] border border-sky-500/25 bg-[#052637]/80 p-6 sm:p-8 lg:p-10 shadow-2xl backdrop-blur-2xl text-left relative overflow-hidden transition-all duration-300">
                     
                     <!-- Brilho Ambiente de Suporte -->
@@ -2107,7 +1642,7 @@
                             </h3>
                         </div>
                         <div class="hidden sm:flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 px-4 py-2 rounded-2xl">
-                            <span class="text-sky-300 font-bold text-xs">Ingresso por apenas R$ 19,00</span>
+                            <span class="text-sky-300 font-bold text-xs">Ingresso por apenas R$ 24,90</span>
                         </div>
                     </div>
 
@@ -2145,25 +1680,7 @@
 
                 </div>
 
-                <!-- NOVA SEÇÃO BRANCA: MERCADO EM ALTA (GOOGLE TRENDS) -->
-                <div class="mt-12 w-full rounded-[32px] bg-white text-slate-900 p-6 sm:p-10 lg:p-12 shadow-2xl text-center relative overflow-hidden transition-all duration-300 border border-slate-100">
-                    
-                    <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-200 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-blue-600 mb-4 shadow-sm">
-                        📈 MERCADO EM EXPANSÃO
-                    </span>
-
-                    <h3 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
-                        Será que você está olhando para um mercado em alta?
-                    </h3>
-                    
-                    <p class="text-sm sm:text-base md:text-lg text-slate-600 mt-3 sm:mt-4 leading-relaxed font-semibold max-w-2xl mx-auto">
-                        Veja o crescimento das buscas por esse tema nos últimos 5 anos.
-                    </p>
-
-                    <!-- Gráfico Responsivo Leve -->
-                    <div class="mt-6 sm:mt-8 w-full max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-white p-2 sm:p-4">
-                        <img src="assets/google_trends_grafico.png" alt="Gráfico Google Trends - Crescimento de buscas nos últimos 5 anos" class="w-full h-auto object-contain rounded-xl sm:rounded-2xl" loading="lazy" decoding="async"/>
-                    </div>
+                
 
                 </div>
 
@@ -2188,7 +1705,7 @@
                     </h2>
                     <div class="h-0.5 w-16 bg-sky-500/40 mx-auto"></div>
                     <p class="text-slate-300 text-sm leading-relaxed max-w-2xl mx-auto">
-                        Nós confiamos tanto na entrega prática do nosso método que oferecemos uma garantia incomum no mercado. Você pode se inscrever hoje por apenas **R$ 19,00** e, por qualquer motivo — inclusive se não gostar do conteúdo ou **se não puder participar ao vivo** —, poderá solicitar a devolução de 100% do seu investimento.
+                        Nós confiamos tanto na entrega prática do nosso método que oferecemos uma garantia incomum no mercado. Você pode se inscrever hoje por apenas **R$ 24,90** e, por qualquer motivo — inclusive se não gostar do conteúdo ou **se não puder participar ao vivo** —, poderá solicitar a devolução de 100% do seu investimento.
                     </p>
                     <p class="text-sky-400 font-extrabold text-xs uppercase tracking-widest">
                         Você tem até 48 horas APÓS o encerramento do evento para pedir o reembolso direto na Kiwify.
